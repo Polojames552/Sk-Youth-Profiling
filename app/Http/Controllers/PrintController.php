@@ -14,17 +14,18 @@ class PrintController extends Controller
 {
      public function index()
     {
-          $print = Youth::all();
+          $print = DB::table('youths')->get();
           return view('printstudent',['print'=>$print,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1])->with('print', $print);;
     }
     public function prnpriview()
     {
+      
             $educ = DB::table('education')->get();
             $purok = DB::table('puroks')->get();
             $p1 = "";
 
-          $youth = Youth::all();
-          $print = Youth::all();
+          $youth = DB::table('youths')->get();
+          $print = DB::table('youths')->get();
           return view('PrintYouth',['print'=>$print,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1])->with('print', $print);;
     }
 
