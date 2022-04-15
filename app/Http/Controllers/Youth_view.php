@@ -189,11 +189,11 @@ class Youth_view extends Controller
         else{
             // 10000
             if($purok != "" && $sex == "" && $education == ""  && $scholar == "" && $age == ""){
-                $youth = Youth::query()->where('Purok', $purok)->get();  
+                $youth = DB::table('youths')->where('Purok', $purok)->get();  
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
-               
+                
                 $num1 = YouthPrint::query()->count(); 
                   if($num1!=0){
                     YouthPrint::truncate();  
@@ -230,7 +230,7 @@ class Youth_view extends Controller
             }
              // 11000
             if($purok != "" && $sex != "" && $education == ""  && $scholar == "" && $age == ""){
-                $youth = Youth::query()->where('Purok', $purok)
+                $youth = DB::table('youths')->where('Purok', $purok)
                 ->where('Sex', $sex)
                 ->get(); 
                 $educ = DB::table('education')->get();
@@ -269,7 +269,7 @@ class Youth_view extends Controller
             }
              // 11100
             if($purok != "" && $sex != "" && $education != ""  && $scholar == "" && $age == ""){
-                $youth = Youth::query()->where('Purok', $purok)
+                $youth = DB::table('youths')->where('Purok', $purok)
                 ->where('Sex', $sex)
                 ->where('EducStatus', $education)
                 ->get(); 
@@ -309,7 +309,7 @@ class Youth_view extends Controller
             }
              // 11110
             if($purok != "" && $sex != "" && $education != ""  && $scholar != "" && $age == ""){
-                $youth = Youth::query()->where('Purok', $purok)
+                $youth = DB::table('youths')->where('Purok', $purok)
                 ->where('Sex', $sex)
                 ->where('EducStatus', $education)
                 ->where('Scholarship', $scholar)
@@ -350,7 +350,7 @@ class Youth_view extends Controller
             }
              // 11111
             if($purok != "" && $sex != "" && $education != ""  && $scholar != "" && $age != ""){
-                $youth = Youth::query()->where('Purok', $purok)
+                $youth = DB::table('youths')->where('Purok', $purok)
                 ->where('Sex', $sex)
                 ->where('EducStatus', $education)
                 ->where('Scholarship', $scholar)
@@ -392,7 +392,7 @@ class Youth_view extends Controller
             }
               // 11010
               if($purok != "" && $sex != "" && $education == ""  && $scholar != "" && $age == ""){
-                $youth = Youth::query()->where('Purok', $purok)
+                $youth = DB::table('youths')->where('Purok', $purok)
                 ->where('Sex', $sex)
                 ->where('Scholarship', $scholar)
                 ->get(); 
@@ -432,7 +432,7 @@ class Youth_view extends Controller
             }
               // 11011
               if($purok != "" && $sex != "" && $education == ""  && $scholar != "" && $age == ""){
-                $youth = Youth::query()->where('Purok', $purok)
+                $youth = DB::table('youths')->where('Purok', $purok)
                 ->where('Sex', $sex)
                 ->where('Scholarship', $scholar)
                 ->where('Age', $age)
@@ -473,7 +473,7 @@ class Youth_view extends Controller
             }
             // 11001
             if($purok != "" && $sex != "" && $education == ""  && $scholar == "" && $age != ""){
-                $youth = Youth::query()->where('Purok', $purok)
+                $youth = DB::table('youths')->where('Purok', $purok)
                 ->where('Sex', $sex)
                 ->where('Age', $age)
                 ->get(); 
@@ -513,7 +513,7 @@ class Youth_view extends Controller
             }
              // 10100
             if($purok != "" && $sex == "" && $education != ""  && $scholar == "" && $age == ""){
-                $youth = Youth::query()->where('Purok', $purok)
+                $youth = DB::table('youths')->where('Purok', $purok)
                 ->where('EducStatus', $education)
                 ->get(); 
                 $educ = DB::table('education')->get();
@@ -552,7 +552,7 @@ class Youth_view extends Controller
             }
               // 10101
               if($purok != "" && $sex == "" && $education != ""  && $scholar == "" && $age != ""){
-                $youth = Youth::query()->where('Purok', $purok)
+                $youth = DB::table('youths')->where('Purok', $purok)
                 ->where('EducStatus', $education)
                 ->where('Age', $age)
                 ->get(); 
@@ -592,7 +592,7 @@ class Youth_view extends Controller
             }
             // 10110
             if($purok != "" && $sex == "" && $education != ""  && $scholar != "" && $age == ""){
-                $youth = Youth::query()->where('Purok', $purok)
+                $youth = DB::table('youths')->where('Purok', $purok)
                 ->where('EducStatus', $education)
                 ->where('Scholarship', $scholar)
                 ->get(); 
@@ -632,7 +632,7 @@ class Youth_view extends Controller
             }
             // 10111
             if($purok != "" && $sex == "" && $education != ""  && $scholar != "" && $age != ""){
-                $youth = Youth::query()->where('Purok', $purok)
+                $youth = DB::table('youths')->where('Purok', $purok)
                 ->where('EducStatus', $education)
                 ->where('Scholarship', $scholar)
                 ->where('Age', $age)
@@ -673,7 +673,7 @@ class Youth_view extends Controller
             }
             // 10010
             if($purok != "" && $sex == "" && $education == ""  && $scholar != "" && $age == ""){
-                $youth = Youth::query()->where('Purok', $purok)
+                $youth = DB::table('youths')->where('Purok', $purok)
                 ->where('Scholarship', $scholar)
                 ->get(); 
                 $educ = DB::table('education')->get();
@@ -712,7 +712,7 @@ class Youth_view extends Controller
             }
             // 10011
             if($purok != "" && $sex == "" && $education == ""  && $scholar != "" && $age != ""){
-                $youth = Youth::query()->where('Purok', $purok)
+                $youth = DB::table('youths')->where('Purok', $purok)
                 ->where('Scholarship', $scholar)
                 ->where('Age', $age)
                 ->get(); 
@@ -752,7 +752,7 @@ class Youth_view extends Controller
             }
             // 10001
             if($purok != "" && $sex == "" && $education == ""  && $scholar == "" && $age != ""){
-                $youth = Youth::query()->where('Purok', $purok)
+                $youth = DB::table('youths')->where('Purok', $purok)
                 ->where('Age', $age)
                 ->get(); 
                 $educ = DB::table('education')->get();
@@ -791,7 +791,7 @@ class Youth_view extends Controller
             }
              // 01000
              if($purok == "" && $sex != "" && $education == ""  && $scholar == "" && $age == ""){
-                $youth = Youth::query()->where('Sex', $sex)
+                $youth = DB::table('youths')->where('Sex', $sex)
                 ->get(); 
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
@@ -829,7 +829,7 @@ class Youth_view extends Controller
             }
             // 01100
             if($purok == "" && $sex != "" && $education != ""  && $scholar == "" && $age == ""){
-                $youth = Youth::query()->where('Sex', $sex)
+                $youth = DB::table('youths')->where('Sex', $sex)
                 ->where('EducStatus', $education)
                 ->get(); 
                 $educ = DB::table('education')->get();
@@ -868,7 +868,7 @@ class Youth_view extends Controller
             }
             // 01110
             if($purok == "" && $sex != "" && $education != ""  && $scholar != "" && $age == ""){
-                $youth = Youth::query()->where('Sex', $sex)
+                $youth = DB::table('youths')->where('Sex', $sex)
                 ->where('EducStatus', $education)
                 ->where('Scholarship', $scholar)
                 ->get(); 
@@ -908,7 +908,7 @@ class Youth_view extends Controller
             }
             // 01111
             if($purok == "" && $sex != "" && $education != ""  && $scholar != "" && $age != ""){
-                $youth = Youth::query()->where('Sex', $sex)
+                $youth = DB::table('youths')->where('Sex', $sex)
                 ->where('EducStatus', $education)
                 ->where('Scholarship', $scholar)
                 ->where('Age', $age)
@@ -949,7 +949,7 @@ class Youth_view extends Controller
             }
             // 01010
             if($purok == "" && $sex != "" && $education == ""  && $scholar != "" && $age == ""){
-                $youth = Youth::query()->where('Sex', $sex)
+                $youth = DB::table('youths')->where('Sex', $sex)
                 ->where('Scholarship', $scholar)
                 ->get(); 
                 $educ = DB::table('education')->get();
@@ -988,7 +988,7 @@ class Youth_view extends Controller
             }
             // 01011
             if($purok == "" && $sex != "" && $education == ""  && $scholar != "" && $age != ""){
-                $youth = Youth::query()->where('Sex', $sex)
+                $youth = DB::table('youths')->where('Sex', $sex)
                 ->where('Scholarship', $scholar)
                 ->where('Age', $age)
                 ->get(); 
@@ -1028,7 +1028,7 @@ class Youth_view extends Controller
             }
             // 01001
             if($purok == "" && $sex != "" && $education == ""  && $scholar == "" && $age != ""){
-                $youth = Youth::query()->where('Sex', $sex)
+                $youth = DB::table('youths')->where('Sex', $sex)
                 ->where('Age', $age)
                 ->get(); 
                 $educ = DB::table('education')->get();
@@ -1067,7 +1067,7 @@ class Youth_view extends Controller
             }
             // 00100
             if($purok == "" && $sex == "" && $education != ""  && $scholar == "" && $age == ""){
-                $youth = Youth::query()->where('EducStatus', $education)
+                $youth = DB::table('youths')->where('EducStatus', $education)
                 ->get(); 
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
@@ -1105,7 +1105,7 @@ class Youth_view extends Controller
             }
             // 00110
             if($purok == "" && $sex == "" && $education != ""  && $scholar != "" && $age == ""){
-                $youth = Youth::query()->where('EducStatus', $education)
+                $youth = DB::table('youths')->where('EducStatus', $education)
                 ->where('Scholarship', $scholar)
                 ->get(); 
                 $educ = DB::table('education')->get();
@@ -1144,7 +1144,7 @@ class Youth_view extends Controller
             }
             // 00111
             if($purok == "" && $sex == "" && $education != ""  && $scholar != "" && $age != ""){
-                $youth = Youth::query()->where('EducStatus', $education)
+                $youth = DB::table('youths')->where('EducStatus', $education)
                 ->where('Scholarship', $scholar)
                 ->where('Age', $age)
                 ->get(); 
@@ -1184,7 +1184,7 @@ class Youth_view extends Controller
             }
             // 00101
             if($purok == "" && $sex == "" && $education != ""  && $scholar == "" && $age != ""){
-                $youth = Youth::query()->where('EducStatus', $education)
+                $youth = DB::table('youths')->where('EducStatus', $education)
                 ->where('Age', $age)
                 ->get(); 
                 $educ = DB::table('education')->get();
@@ -1223,7 +1223,7 @@ class Youth_view extends Controller
             }
             // 00010
             if($purok == "" && $sex == "" && $education == ""  && $scholar != "" && $age == ""){
-                $youth = Youth::query()->where('Scholarship', $scholar)
+                $youth = DB::table('youths')->where('Scholarship', $scholar)
                 ->get(); 
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
@@ -1261,7 +1261,7 @@ class Youth_view extends Controller
             }
             // 00011
             if($purok == "" && $sex == "" && $education == ""  && $scholar != "" && $age != ""){
-                $youth = Youth::query()->where('Scholarship', $scholar)
+                $youth = DB::table('youths')->where('Scholarship', $scholar)
                 ->where('Age', $age)
                 ->get(); 
                 $educ = DB::table('education')->get();
@@ -1300,7 +1300,7 @@ class Youth_view extends Controller
             }
             // 00001
             if($purok == "" && $sex == "" && $education == ""  && $scholar != "" && $age != ""){
-                $youth = Youth::query()->where('Age', $age)
+                $youth = DB::table('youths')->where('Age', $age)
                 ->get(); 
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
@@ -1343,7 +1343,7 @@ class Youth_view extends Controller
     public function searchme(Request $request){
       $search = $request->input('mesearch');
 
-      $youth = Youth::query()->Orwhere('Purok', 'LIKE', "%{$search}%")
+      $youth = DB::table('youths')->Orwhere('Purok', 'LIKE', "%{$search}%")
                 ->Orwhere('Sex', 'LIKE', "%{$search}%")
                 ->Orwhere('CivilStatus', 'LIKE', "%{$search}%")
                 ->Orwhere('EducStatus', 'LIKE', "%{$search}%")
