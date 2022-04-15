@@ -19,16 +19,16 @@ class Youth_view extends Controller
         $count = DB::table('youths')->count();
         
     // Population per purok
-    $purok1 = Youth::where('Purok', '1')->count();
-    $purok2 = Youth::where('Purok', '2')->count();
-    $purok3 = Youth::where('Purok', '3')->count();
-    $purok4A = Youth::where('Purok', '4-A')->count();
-    $purok4B = Youth::where('Purok', '4-B')->count();
-    $purok5 = Youth::where('Purok', '5')->count();
-    $purok6 = Youth::where('Purok', '6')->count();
+    $purok1 = DB::table('youths')->where('Purok', '1')->count();
+    $purok2 = DB::table('youths')->where('Purok', '2')->count();
+    $purok3 = DB::table('youths')->where('Purok', '3')->count();
+    $purok4A = DB::table('youths')->where('Purok', '4-A')->count();
+    $purok4B = DB::table('youths')->where('Purok', '4-B')->count();
+    $purok5 = DB::table('youths')->where('Purok', '5')->count();
+    $purok6 = DB::table('youths')->where('Purok', '6')->count();
 
     // PIE Boys and Girls
-    $Male = Youth::where('Sex', 'Male')->count();
+    $Male = DB::table('youths')->where('Sex', 'Male')->count();
     if($Male == 0){
         $FMale = 0;
     }else{

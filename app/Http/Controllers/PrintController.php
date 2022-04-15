@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Youth;
 use DB;
 use App\Exports\YouthExport;
+use App\Models\YouthPrint;
 use Maatwebsite\Excel\Facades\Excel;
 
 
