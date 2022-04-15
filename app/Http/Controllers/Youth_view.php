@@ -35,14 +35,14 @@ class Youth_view extends Controller
         $FMale = ($count/$Male)*100;
     }
 
-    $Female = Youth::where('Sex', 'Female')->count();
+    $Female = DB::table('youths')->where('Sex', 'Female')->count();
     if($Female == 0){
         $FFemale = 0;
     }else{
         $FFemale = ($count/$Female)*100;
     }
 
-    $LGBTQ = Youth::where('Sex', 'LGBTQ+')->count();
+    $LGBTQ = DB::table('youths')->where('Sex', 'LGBTQ+')->count();
     if($LGBTQ == 0){
         $LGBTQ = 0;
     }else{
@@ -60,9 +60,9 @@ class Youth_view extends Controller
         $p1 = "";
         $youth = DB::table('youths')->get();
      
-        $num1 = YouthPrint::query()->count();
+        $num1 = DB::table('youth_prints')->query()->count();
         if($num1!=0){
-            YouthPrint::truncate();
+            DB::table('youth_prints')->truncate();
         }
         return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
     }
@@ -78,14 +78,14 @@ class Youth_view extends Controller
 
         // PIE AGE RATIO
     
-        $N15To18 = Youth::where('Age', '15')->Orwhere('Age', '16')->Orwhere('Age', '17')->Orwhere('Age', '18')->count();
+        $N15To18 = DB::table('youths')->where('Age', '15')->Orwhere('Age', '16')->Orwhere('Age', '17')->Orwhere('Age', '18')->count();
         if($N15To18 == 0){
             $F15to18 = 1;
         }else{
             $F15to18 = ($count/$N15To18)*100;
         }
 
-        $N19Above = Youth::where('Age', '19')->Orwhere('Age', '20')->Orwhere('Age', '21')->Orwhere('Age', '22')->Orwhere('Age', '23')->Orwhere('Age', '24')->Orwhere('Age', '25')->Orwhere('Age', '26')->Orwhere('Age', '27')->Orwhere('Age', '28')->count();
+        $N19Above = DB::table('youths')->where('Age', '19')->Orwhere('Age', '20')->Orwhere('Age', '21')->Orwhere('Age', '22')->Orwhere('Age', '23')->Orwhere('Age', '24')->Orwhere('Age', '25')->Orwhere('Age', '26')->Orwhere('Age', '27')->Orwhere('Age', '28')->count();
         if($N19Above == 0){
             $F19Above = 1;
         }else{
@@ -93,30 +93,30 @@ class Youth_view extends Controller
         }
 
       // Population per purok
-      $purok1 = Youth::where('Purok', '1')->count();
-      $purok2 = Youth::where('Purok', '2')->count();
-      $purok3 = Youth::where('Purok', '3')->count();
-      $purok4A = Youth::where('Purok', '4-A')->count();
-      $purok4B = Youth::where('Purok', '4-B')->count();
-      $purok5 = Youth::where('Purok', '5')->count();
-      $purok6 = Youth::where('Purok', '6')->count();
+      $purok1 = DB::table('youths')->where('Purok', '1')->count();
+      $purok2 = DB::table('youths')->where('Purok', '2')->count();
+      $purok3 = DB::table('youths')->where('Purok', '3')->count();
+      $purok4A = DB::table('youths')->where('Purok', '4-A')->count();
+      $purok4B = DB::table('youths')->where('Purok', '4-B')->count();
+      $purok5 = DB::table('youths')->where('Purok', '5')->count();
+      $purok6 = DB::table('youths')->where('Purok', '6')->count();
 
        // PIE Boys and Girls
-       $Male = Youth::where('Sex', 'Male')->count();
+       $Male = DB::table('youths')->where('Sex', 'Male')->count();
         if($Male == 0){
             $FMale = 0;
         }else{
             $FMale = ($count/$Male)*100;
         }
 
-        $Female = Youth::where('Sex', 'Female')->count();
+        $Female = DB::table('youths')->where('Sex', 'Female')->count();
         if($Female == 0){
             $FFemale = 0;
         }else{
             $FFemale = ($count/$Female)*100;
         }
 
-        $LGBTQ = Youth::where('Sex', 'LGBTQ+')->count();
+        $LGBTQ = DB::table('youths')->where('Sex', 'LGBTQ+')->count();
         if($LGBTQ == 0){
             $LGBTQ = 0;
         }else{
@@ -124,14 +124,14 @@ class Youth_view extends Controller
         }
 
         // Population per Education levels
-        $master = Youth::where('EducStatus', "Master's Degree")->count();
-        $cl = Youth::where('EducStatus', "College Level")->count();
-        $cu = Youth::where('EducStatus', "College Undergraduate")->count();
-        $shs = Youth::where('EducStatus', "Senior High School")->count();
-        $jhs = Youth::where('EducStatus', "Junior High School")->count();
-        $hsu = Youth::where('EducStatus', "High School Undergraduate")->count();
-        $el = Youth::where('EducStatus', "Elementary Level")->count();
-        $eu = Youth::where('EducStatus', "Elementary Undergraduate")->count();
+        $master = DB::table('youths')->where('EducStatus', "Master's Degree")->count();
+        $cl = DB::table('youths')->where('EducStatus', "College Level")->count();
+        $cu = DB::table('youths')->where('EducStatus', "College Undergraduate")->count();
+        $shs = DB::table('youths')->where('EducStatus', "Senior High School")->count();
+        $jhs = DB::table('youths')->where('EducStatus', "Junior High School")->count();
+        $hsu = DB::table('youths')->where('EducStatus', "High School Undergraduate")->count();
+        $el = DB::table('youths')->where('EducStatus', "Elementary Level")->count();
+        $eu = DB::table('youths')->where('EducStatus', "Elementary Undergraduate")->count();
       
 
         return view('charts',['count'=> $count , 'F15to18'=>$F15to18,'F19Above'=>$F19Above,'purok1'=>$purok1,
@@ -154,9 +154,9 @@ class Youth_view extends Controller
             $purok = DB::table('puroks')->get();
             $p1 = "";
           
-            $num1 = YouthPrint::query()->count(); 
+            $num1 = DB::table('youth_prints')->query()->count(); 
                   if($num1!=0){
-                    YouthPrint::truncate();  
+                    DB::table('youth_prints')->truncate();  
                   }
 
                   foreach($youth as $youth1){
@@ -194,9 +194,9 @@ class Youth_view extends Controller
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
                
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = DB::table('youth_prints')->query()->count(); 
                   if($num1!=0){
-                    YouthPrint::truncate();  
+                    DB::table('youth_prints')->truncate();  
                   }
 
                   foreach($youth as $youth1){
@@ -237,9 +237,9 @@ class Youth_view extends Controller
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = DB::table('youth_prints')->query()->count(); 
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  DB::table('youth_prints')->truncate();  
                 }
 
                 foreach($youth as $youth1){
@@ -277,9 +277,9 @@ class Youth_view extends Controller
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = DB::table('youth_prints')->query()->count(); 
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  DB::table('youth_prints')->truncate();  
                 }
 
                 foreach($youth as $youth1){
@@ -318,9 +318,9 @@ class Youth_view extends Controller
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = DB::table('youth_prints')->query()->count(); 
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  DB::table('youth_prints')->truncate();  
                 }
 
                 foreach($youth as $youth1){
@@ -360,9 +360,9 @@ class Youth_view extends Controller
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = DB::table('youth_prints')->query()->count(); 
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  DB::table('youth_prints')->truncate();  
                 }
 
                 foreach($youth as $youth1){
@@ -400,9 +400,9 @@ class Youth_view extends Controller
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = DB::table('youth_prints')->query()->count(); 
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  DB::table('youth_prints')->truncate();  
                 }
 
                 foreach($youth as $youth1){
@@ -441,9 +441,9 @@ class Youth_view extends Controller
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = DB::table('youth_prints')->query()->count(); 
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  DB::table('youth_prints')->truncate();  
                 }
 
                 foreach($youth as $youth1){
@@ -481,9 +481,9 @@ class Youth_view extends Controller
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = DB::table('youth_prints')->query()->count(); 
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  DB::table('youth_prints')->truncate();  
                 }
 
                 foreach($youth as $youth1){
@@ -520,9 +520,9 @@ class Youth_view extends Controller
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = DB::table('youth_prints')->query()->count(); 
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  DB::table('youth_prints')->truncate();  
                 }
 
                 foreach($youth as $youth1){
@@ -560,9 +560,9 @@ class Youth_view extends Controller
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = DB::table('youth_prints')->query()->count(); 
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  DB::table('youth_prints')->truncate();  
                 }
 
                 foreach($youth as $youth1){
@@ -600,9 +600,9 @@ class Youth_view extends Controller
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = DB::table('youth_prints')->query()->count(); 
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  DB::table('youth_prints')->truncate();  
                 }
 
                 foreach($youth as $youth1){
@@ -641,9 +641,9 @@ class Youth_view extends Controller
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = DB::table('youth_prints')->query()->count(); 
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  DB::table('youth_prints')->truncate();  
                 }
 
                 foreach($youth as $youth1){
@@ -680,9 +680,9 @@ class Youth_view extends Controller
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = DB::table('youth_prints')->query()->count(); 
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  DB::table('youth_prints')->truncate();  
                 }
 
                 foreach($youth as $youth1){
@@ -720,9 +720,9 @@ class Youth_view extends Controller
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = DB::table('youth_prints')->query()->count(); 
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  DB::table('youth_prints')->truncate();  
                 }
 
                 foreach($youth as $youth1){
@@ -759,9 +759,9 @@ class Youth_view extends Controller
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = DB::table('youth_prints')->query()->count(); 
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  DB::table('youth_prints')->truncate();  
                 }
 
                 foreach($youth as $youth1){
@@ -797,9 +797,9 @@ class Youth_view extends Controller
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = DB::table('youth_prints')->query()->count(); 
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  DB::table('youth_prints')->truncate();  
                 }
 
                 foreach($youth as $youth1){
@@ -836,9 +836,9 @@ class Youth_view extends Controller
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = DB::table('youth_prints')->query()->count(); 
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  DB::table('youth_prints')->truncate();  
                 }
 
                 foreach($youth as $youth1){
@@ -876,9 +876,9 @@ class Youth_view extends Controller
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = DB::table('youth_prints')->query()->count(); 
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  DB::table('youth_prints')->truncate();  
                 }
 
                 foreach($youth as $youth1){
@@ -917,9 +917,9 @@ class Youth_view extends Controller
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = DB::table('youth_prints')->query()->count(); 
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  DB::table('youth_prints')->truncate();  
                 }
 
                 foreach($youth as $youth1){
@@ -956,9 +956,9 @@ class Youth_view extends Controller
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = DB::table('youth_prints')->query()->count(); 
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  DB::table('youth_prints')->truncate();  
                 }
 
                 foreach($youth as $youth1){
@@ -996,9 +996,9 @@ class Youth_view extends Controller
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = DB::table('youth_prints')->query()->count(); 
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  DB::table('youth_prints')->truncate();  
                 }
 
                 foreach($youth as $youth1){
@@ -1035,9 +1035,9 @@ class Youth_view extends Controller
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = DB::table('youth_prints')->query()->count(); 
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  DB::table('youth_prints')->truncate();  
                 }
 
                 foreach($youth as $youth1){
@@ -1073,9 +1073,9 @@ class Youth_view extends Controller
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = DB::table('youth_prints')->query()->count(); 
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  DB::table('youth_prints')->truncate();  
                 }
 
                 foreach($youth as $youth1){
@@ -1112,9 +1112,9 @@ class Youth_view extends Controller
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = DB::table('youth_prints')->query()->count(); 
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  DB::table('youth_prints')->truncate();  
                 }
 
                 foreach($youth as $youth1){
@@ -1152,9 +1152,9 @@ class Youth_view extends Controller
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = DB::table('youth_prints')->query()->count(); 
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  DB::table('youth_prints')->truncate();  
                 }
 
                 foreach($youth as $youth1){
@@ -1191,9 +1191,9 @@ class Youth_view extends Controller
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = DB::table('youth_prints')->query()->count(); 
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  DB::table('youth_prints')->truncate();  
                 }
 
                 foreach($youth as $youth1){
@@ -1229,9 +1229,9 @@ class Youth_view extends Controller
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = DB::table('youth_prints')->query()->count(); 
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  DB::table('youth_prints')->truncate();  
                 }
 
                 foreach($youth as $youth1){
@@ -1268,9 +1268,9 @@ class Youth_view extends Controller
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = DB::table('youth_prints')->query()->count(); 
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  DB::table('youth_prints')->truncate();  
                 }
 
                 foreach($youth as $youth1){
@@ -1306,9 +1306,9 @@ class Youth_view extends Controller
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = DB::table('youth_prints')->query()->count(); 
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  DB::table('youth_prints')->truncate();  
                 }
 
                 foreach($youth as $youth1){

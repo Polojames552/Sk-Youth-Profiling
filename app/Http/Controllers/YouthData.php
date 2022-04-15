@@ -17,7 +17,7 @@ class YouthData extends Controller
     public function store(Request $request)
     {
 
-    $count = Youth::where('Fname', $request->input('FirstName'))->where('Mname', $request->input('MiddleName'))->where('Lname', $request->input('LastName'))->count();
+    $count = DB::table('youths')->where('Fname', $request->input('FirstName'))->where('Mname', $request->input('MiddleName'))->where('Lname', $request->input('LastName'))->count();
     if($count==0){
         $data = new youth();
         $data->Fname = $request->input('FirstName');
