@@ -49,7 +49,7 @@ Route::group(['middleware'=> 'auth'],function(){
     Route::post('update-user/{id}',[YouthData::class ,'update_function'])->name('update-user');
     Route::get('/charts',[Youth_view::class ,'tables']);
 
-    Route::get('/export',[App\http\Controllers\PrintController::class ,'export']);
+    Route::get('/export',[PrintController::class ,'export']);
     Route::get('/prnpriview',[PrintController::class ,'prnpriview']);
  
     // Route::get('/charts', function () {
