@@ -80,14 +80,14 @@ class Youth_view extends Controller
     
         $N15To18 = DB::table('youths')->where('Age', '15')->Orwhere('Age', '16')->Orwhere('Age', '17')->Orwhere('Age', '18')->count();
         if($N15To18 == 0){
-            $F15to18 = 1;
+            $F15to18 = 0;
         }else{
             $F15to18 = ($count/$N15To18)*100;
         }
 
         $N19Above = DB::table('youths')->where('Age', '19')->Orwhere('Age', '20')->Orwhere('Age', '21')->Orwhere('Age', '22')->Orwhere('Age', '23')->Orwhere('Age', '24')->Orwhere('Age', '25')->Orwhere('Age', '26')->Orwhere('Age', '27')->Orwhere('Age', '28')->count();
         if($N19Above == 0){
-            $F19Above = 1;
+            $F19Above = 0;
         }else{
             $F19Above = ($count/$N19Above)*100;
         }
