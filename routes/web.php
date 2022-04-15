@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\YouthData;
 use App\Http\Controllers\Youth_view;
 use App\Http\Controllers\PrintController;
-
+use App\Models\Youth;
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
