@@ -215,8 +215,10 @@
         }
 
     </script>
-
-                 <center><a href="{{ url('/prnpriview') }}" class="btnprn btn btn-primary">Print Preview</a> </center>     
+            <form action="{{ route('prnpriview') }}" method="GET">
+                <button class="btnprn btn btn-primary">Print Preview</button>
+            </form>
+                 <!-- <center><a href="{{ url('/prnpriview') }}" class="btnprn btn btn-primary">Print Preview</a> </center>      -->
                  
                  <script type="text/javascript">
                     $(document).ready(function(){
