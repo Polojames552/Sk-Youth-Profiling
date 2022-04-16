@@ -11,7 +11,7 @@
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
        
-        <center><img src="image/skcover.png" width="200px" height="150px" alt=""></center>
+        <center><img src="image/SKcover.png" width="200px" height="150px" alt=""></center>
          <!-- Validation Errors -->
          
          <x-auth-validation-errors class="mb-4" :errors="$errors" />
