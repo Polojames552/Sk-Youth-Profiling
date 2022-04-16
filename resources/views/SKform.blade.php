@@ -232,19 +232,25 @@
                             
                             
                             <div class="row row-space">
-                                
-                                        <div class="col-2"  id="sub">
-                                         <button class="button-5"   style="float:right;" role="button">Submit</button>
+                            <!-- <div class="bttn"> -->
+                            <div class="flex-parent jc-center">
+                                        <!-- <div class="col-2"  id="sub"> -->
+                                        <div class="col-2">
+                                         <button class="button-5" role="button">Submit</button>
                                         </div>
                         </form> 
-                                        <div class="col-2" id="cancel">
+                                        <!-- <div class="col-2" id="cancel"> -->
+                                        <div class="col-2">
                                             <form action="{{route('welcome')}}" method="get">
                                                         <button class="button-6"  role="button">Cancel</button>
                                             </form>
                                         </div>
                                 </div>
+                                </div>
                         </div>
                         
+
+
                         <!-- HTML !-->
                     
 
@@ -254,30 +260,75 @@
     background-color:#f23339;
 } */
 
+.flex-parent {
+  display: flex;
+  padding-bottom: 50px;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+button.margin-right {
+  margin-right: 20px;
+}
+
+.bttn{
+    padding-bottom: 50px;
+    justify-content: center;
+  
+  
+   
+}
+
 @media (max-width:800px){
-    #cancel{
+   
+    .bttn{
+    padding-bottom: 50px;
+    justify-content: center;
+    /* margin-right: 100px;
+    margin-left: 150px; */
+   
+}
+
+.flex-parent {
+ 
+  display: block;
+    width: 250px;  
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+  
+}
+
+    
+    /* #cancel{
     margin-top: -50px;
     margin-left: 100px;
     padding-left: 100px;
 }
+    padding-right: 10px;
 
 #sub{
     padding-right: 100px;
     margin-right: 100px;
    
-}
+} */
 }
 
-#sub{
+/* #sub{
     padding-right: 10px;
    
-}
+} */
               
-#cancel{
+/* #cancel{
     padding-bottom: 50px;
-   padding-left: 10px; 
-    
-}
+  
+
+} */
 
 .input--style-5 {
     border: none;
@@ -335,11 +386,12 @@
   font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 16px;
   font-weight: 600;
-  justify-content: center;
+  justify-content: space-between;
   line-height: 1.25;
   margin: 0;
   min-height: 3rem;
-  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  padding: 10px 79px;
+  margin-left: 80px;
   position: relative;
   text-decoration: none;
   transition: all 250ms;
@@ -347,7 +399,7 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: baseline;
-  width: auto;
+  
   
 }
 
@@ -383,11 +435,11 @@
   font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 16px;
   font-weight: 600;
-  justify-content: center;
+   justify-content: space-between;
   line-height: 1.25;
   margin: 0;
   min-height: 3rem;
-  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  padding: 1px 80px;
   position: relative;
   text-decoration: none;
   transition: all 250ms;
@@ -395,7 +447,7 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: baseline;
-  width: auto;
+  margin-left: 80px;
   
 }
 

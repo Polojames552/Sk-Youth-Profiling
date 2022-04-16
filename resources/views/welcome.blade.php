@@ -57,7 +57,7 @@
               <div class="navbar-links">
                 <ul>
                
-                
+             
                 @if (Route::has('login'))
                     @auth
                     <li> <a class="add" href="{{ route('login') }}"><i class="fa fa-fw fa-user"></i>Go to Dashboard</a></li>
@@ -194,64 +194,21 @@
       </div>
 <br>
 <br>
-      <!-- <h2>Sangguniang Kabataan Officials</h2>
 
-
-<center>
-
-      <div class="row">
-  <div class="column01">
-    <div class="card01">
-      <img src="image/sklogo.png" alt="Jane" style="height:30%;" width="50%;">
-      <div class="container01">
-        <h2>Jane Doe</h2>
-        <p class="title">SK Chairman</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>example@example.com</p>
-        <button class="button">Contact</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="column01">
-    <div class="card01">
-      <img src="image/sklogo.png" alt="Mike" style="height:30%;" width="50%;">
-      <div class="container01">
-        <h2>Mike Ross</h2>
-        <p class="title">Art Director</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>example@example.com</p>
-        <button class="button">Contact</button>
-      </div>
-    </div>
-  </div>
   
-  
-  <div class="column01">
-    <div class="card01">
-      <img src="image/sklogo.png" alt="John" style="height:30%;" width="50%;"s>
-      <div class="container01">
-        <h2>John Doe</h2>
-        <p class="title">Designer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>example@example.com</p>
-        <button class="button">Contact</button>
-      </div>
-    </div>
-  </div>
-</div>
-</center> -->
-      <br>
-      <br>
       <footer>
-      <img class="pic" src="image/sklogo.png" style="width:100px">
-        <p ><a id="fb" class='fab fa-facebook-f' href="https://www.facebook.com/sangguniang.kabataan.984349">SK San Julian</a></p>
+      <img class="pic" src="image/sklogo.png">
+        <p ><a  class='fab fa-facebook-f' href="https://www.facebook.com/sangguniang.kabataan.984349">SK San Julian</a></p>
         <p> Baranggay San Julian Irosin, Sorsogon</p>
-        <p><a  class="fa fa-copyright"></a>Sangguniang Kabataan (2022) All Rights Reserved.</p>
-
-      </footer>
+        <p><a  class="fa fa-copyright"></a>Sangguniang Kabataan (2022).</p>
+    <p>All Rights Reserved</p>
+      </footer> 
       
 <style>
+
+.pic{
+  width: 10%;
+}
 
 /* .column01 {
   float: left;
@@ -308,7 +265,7 @@
 
 
 .container{
-  margin: 20px;
+  /* margin: 20px; */
 }
 
 .row{
@@ -333,9 +290,10 @@
 
 @media (max-width:800px){
   #mission{
-    height: 230px;
+    height: 260px;
   }
   .card-02{
+    margin-left: 40px;
     flex: 100%;
     max-width: 380px;
   }
@@ -343,8 +301,21 @@
     font-size: 8px;
   }
 .www{
-  font-size: 18px;
+  font-size: 17px;
 }
+.pic{
+  width: 15%;
+}
+
+/* footer img {
+  margin-top: 2px;
+  margin-left: 5px;
+  width: 1.75rem;
+  height: 0px;
+} */
+
+
+
 
 }
 
@@ -384,7 +355,7 @@
 .brand-title {
   padding-top: 10;
   margin-top: 15px;
-    font-size: 22px;
+    font-size: 25px;
     text-align: center;
 
 }
@@ -454,11 +425,16 @@
     height: 5px;
   }
 
+  .brand-title {
+  padding-top: 10;
+  margin-top: 15px;
+    font-size: 20px;
+    text-align: center;
+    padding-left: 70px;
 
-    .brand-title {
-    padding-left: 80px;
+}
 
-    }
+
 
     .toggle-button {
         display: flex;
@@ -502,11 +478,14 @@
     height: 100%;
    }
 
+
+
    footer p {
-    padding: 5px 0;
     text-align: center;
     color: white;
     font-size: 10px;
+} 
+
 }
 /* .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -520,7 +499,7 @@
     margin-bottom: 20px;
   } */
 
-}
+
 
 
 
