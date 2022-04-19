@@ -16,16 +16,16 @@ class YouthData extends Controller
 
     public function store(Request $request)
     {
-
-    $count = DB::table('youths')->where('Fname', $request->input('FirstName'))->where('Mname', $request->input('MiddleName'))->where('Lname', $request->input('LastName'))->count();
+        
+    $count = DB::table('youths')->where('Fname', $request->input('FirstName'))->where('parent', $request->input('ParentName'))->where('Lname', $request->input('LastName'))->count();
     if($count==0){
         $data = new youth();
         $data->Fname = $request->input('FirstName');
         // $data->Mname = $request->input('MiddleName');
         if($request->input('MiddleName')==""){
-            $Mname = " ";
+            $data->Mname = " ";
         }else{
-            $Mname = $request->input('MiddleName');
+            $data->Mname = $request->input('MiddleName');
         }
         $data->Lname = $request->input('LastName');
         if($request->input('Extension')==""){
@@ -101,11 +101,13 @@ class YouthData extends Controller
             $Mname = $request->input('MiddleName');
         }
         $Lname = $request->input('LastName');
+       
         if($request->input('Extension')==""){
             $EXTname = " ";
         }else{
             $EXTname = $request->input('Extension');
         }
+
         $Bday = $request->input('Birthday');
         $Age = Carbon::parse($request->input('Birthday'))->diff(Carbon::now())->y;
         $Sex = $request->input('Sex');
