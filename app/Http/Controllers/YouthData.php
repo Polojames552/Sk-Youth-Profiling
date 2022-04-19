@@ -153,4 +153,11 @@ class YouthData extends Controller
 
         return redirect('dashboardmain')->with('success', 'Data Updated');
     }
+    public function update_function1(Request $request){
+
+        $announce = $request->input('announcement');
+        DB::table('users')->update(array('announcement' => $announce));
+
+        return redirect('charts')->with('success', 'Data Updated');
+    }
 }

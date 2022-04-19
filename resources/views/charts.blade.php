@@ -13,7 +13,7 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html"></a>
+            <!-- <a class="navbar-brand ps-3" href="index.html"></a> -->
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
 
@@ -33,11 +33,11 @@
 
                             <a class="nav-link" href="charts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
+                                Charts & Announcement
                             </a>
                             <a class="nav-link" href="tables">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
+                                Tables & Export Data
                             </a>
                           
                         </div>
@@ -56,13 +56,13 @@
                           }
                       </style>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <!-- <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li> -->
                             <li class="breadcrumb-item active">Charts</li>
                         </ol>
                 
                         <div class="row">
                             <div class="col-lg-6">
-                                <div class="card mb-4">
+                                <div class="card mb-4"id="purok">
                                     <div class="card-header">
                                         <i class="fas fa-chart-bar me-1"></i>
                                         Youth Population per PUROK
@@ -72,19 +72,19 @@
                             </div>
 
                             <div class="col-lg-6">
-                                <div class="card mb-4">
+                                <div class="card mb-4" id="pie">
                                     <div class="card-header">
                                         <i class="fas fa-chart-pie me-1"></i>
                                         Youth Population by GENDER
                                     </div>
-                                    <div id="piechart" style="width: 500px; height: 400px;"></div>
+                                    <div id="piechart" style="width: 400px; height: 300px;"></div>
                                 </div>
                             </div>
                         </div>
 <br><br><br><br><br><br>
                         <div class="row">
                             <div class="col-lg-6">
-                                <div class="card mb-4">
+                                <div class="card mb-4" id="purok">
                                     <div class="card-header">
                                         <i class="fas fa-chart-bar me-1"></i>
                                         Youth Population by EDUCATIONAL  LEVELS
@@ -93,15 +93,30 @@
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <div class="card mb-4">
+                                <div class="card mb-4" id="pie">
                                     <div class="card-header">
                                         <i class="fas fa-chart-pie me-1"></i>
                                         Youth Population per AGE RATIO
                                     </div>
-                                    <div id="Age" style="width: 500px; height: 400px;"></div>
+                                    <div id="Age" style="width: 400px; height: 300px;"></div>
                                 </div>
                             </div>
                         </div>
+                        <br><br>
+                        <label for=""><h4>Announcement:</h4></label>
+                  
+                        <form action="announceEDIT" method="post" enctype="multipart/form-data">
+                         {{ csrf_field() }}
+                            <textarea  class="col-lg-12" id="announcement" rows="6" name="announcement">
+                            {{$announcement[0]->announcement}}
+                            </textarea>
+                            <p align="right">
+                              <button class="btnprn btn btn-primary">Update</button>
+                            </p>
+                          </form>
+                     
+
+                        <br><br>
                     </div>
                 </main>
 
@@ -112,6 +127,20 @@
           @media (max-width: 800px) {
     .card{
         width: 520px;
+    }
+
+    #purok{
+        height: 400px;
+        width: 350px;
+    }
+
+    #pie {
+        height: 400px;
+        width: 350px;
+    }
+    #announcement{
+      height: 200px;
+        width: 350px;
     }
 
     }
@@ -236,11 +265,11 @@
         chart.draw(data, options);
       }
     </script>
-        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/chart-area-demo.js"></script>
         <script src="assets/demo/chart-bar-demo.js"></script>
-        <script src="assets/demo/chart-pie-demo.js"></script> -->
+        <script src="assets/demo/chart-pie-demo.js"></script>  -->
     </body>
 </html>

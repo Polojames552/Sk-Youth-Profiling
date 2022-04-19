@@ -17,9 +17,11 @@ use App\Models\User;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// })->name('welcome');
+
+Route::get('/',[Youth_view::class ,'show_welcome'])->name('welcome');
 
 // Route::get('/SKform', function () {
 //     return view('SKform');
@@ -42,10 +44,14 @@ Route::get('/SKform',[Youth_view::class ,'data2'])->name('SKform');
 Route::group(['middleware'=> 'auth'],function(){
 
     Route::get('/dashboardmain',[Youth_view::class ,'show']);
+
+    
     Route::get('/search/', [Youth_view::class ,'search'])->name('search');
     Route::get('/searchme/', [Youth_view::class ,'searchme'])->name('searchme');
 
     Route::get('click_edit/{id}',[YouthData::class ,'edit_function']);
+
+    Route::post('announceEDIT',[YouthData::class ,'update_function1'])->name('update-user');
     Route::post('update-user/{id}',[YouthData::class ,'update_function'])->name('update-user');
     Route::get('/charts',[Youth_view::class ,'tables']);
 

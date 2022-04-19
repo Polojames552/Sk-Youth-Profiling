@@ -14,6 +14,14 @@ use DB;
 
 class Youth_view extends Controller
 {
+
+    function show_welcome(){
+        $announcement = DB::table('users')->get('announcement');
+     
+        return view('welcome',['announcement'=>$announcement]);
+    }
+
+
     function show(){
         $youth = DB::table('youths')->get();
         $count = DB::table('youths')->count();
@@ -124,6 +132,7 @@ class Youth_view extends Controller
         }
 
         // Population per Education levels
+        $announcement = DB::table('users')->get('announcement');
         $master = DB::table('youths')->where('EducStatus', "Master's Degree")->count();
         $cl = DB::table('youths')->where('EducStatus', "College Level")->count();
         $cu = DB::table('youths')->where('EducStatus', "College Undergraduate")->count();
@@ -134,7 +143,7 @@ class Youth_view extends Controller
         $eu = DB::table('youths')->where('EducStatus', "Elementary Undergraduate")->count();
       
 
-        return view('charts',['count'=> $count , 'F15to18'=>$F15to18,'F19Above'=>$F19Above,'purok1'=>$purok1,
+        return view('charts',['announcement' => $announcement,'count'=> $count , 'F15to18'=>$F15to18,'F19Above'=>$F19Above,'purok1'=>$purok1,
         'purok2'=>$purok2,'purok3'=>$purok3,'purok4A'=>$purok4A,'purok4B'=>$purok4B,'purok5'=>$purok5,'purok6'=>$purok6,'FMale'=>$FMale,
         'FFemale'=>$FFemale,'LGBTQ'=>$LGBTQ,'master'=>$master,'cl'=>$cl,'cu'=>$cu,'shs'=>$shs,'jhs'=>$jhs, 'hsu'=>$hsu,'el'=>$el,'eu'=>$eu]);
     }

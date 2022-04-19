@@ -38,11 +38,11 @@
 
                              <a class="nav-link" href="charts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
+                                Charts & Announcement
                             </a>
                             <a class="nav-link" href="tables">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
+                                Tables & Export Data
                             </a> 
 
                       
@@ -80,27 +80,27 @@
                                         <i class="fas fa-chart-bar me-1"></i>
                                         Youth Population per PUROK
                                     </div>
-                                    <div id="columnchart_values" style="width: 500px; height: 400px;"></div>
+                                    <div id="columnchart_values" style="width: 400px; height: 300px;"></div>
                                 </div>
                             </div>
 
                             <div class="col-lg-6">
-                                <div class="card mb-4">
+                                <div class="card mb-4"  id="pie">
                                     <div class="card-header">
                                         <i class="fas fa-chart-pie me-1"></i>
                                         Youth Population by GENDER
                                     </div>
-                                    <div id="piechart" style="width: 500px; height: 400px;"></div>
+                                    <div id="piechart" style="width: 400px; height: 300px;"></div>
                                 </div>
                             </div>
                         </div>
                        
-                        <div class="card mb-4">
+                        <div class="card mb-4"  id="purok">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
                                 DataTable Example
                             </div>
-                            <div class="card-body">
+                            <div class="card-body"id="bodycard">
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
@@ -224,10 +224,26 @@
         width: 520px;
     }
 
-    #purok{
+    #purok {
         height: 400px;
-        width: 330px;
+        width: 350px;
     }
+
+    #pie {
+        height: 400px;
+        width: 350px;
+    }
+
+   #piechart{
+       height: 50px;
+       width: 50px;
+   }
+
+
+
+    #bodycard{
+    width: 100%;
+}
 
     }
     

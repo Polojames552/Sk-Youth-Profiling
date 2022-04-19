@@ -62,7 +62,7 @@
                     @auth
                     <li> <a class="add" href="{{ route('login') }}"><i class="fa fa-fw fa-user"></i>Go to Dashboard</a></li>
                     @else
-                    <li> <a class="add" href="{{ route('login') }}"><i class="fa fa-fw fa-user"></i> Administator</a></li>
+                    <li> <a id="administrator" class="add" href="{{ route('login') }}"><i class="fa fa-fw fa-user"></i> Administator</a></li>
                     @endauth
                 @endif
 
@@ -150,18 +150,14 @@
 <br>
 <br>
 <center>
- <div class="card1">
+ <div class="card1"  style="background-color:#e6f0ff">
   <div class="anno">
   <img src="image/announ2.png"style="height:70px;" width="250px;">
     <!-- <h2   id="Announcement"><i class="fa fa-bullhorn" id="horn1"></i>Announcement!</h2></i> -->
     <!-- <h2 id="Announcement"></i>Announcement!</h2></i> -->
 <br><br>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-       Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-       Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    <a target="_blank" href="tryit.asp?filename=trycss_text">"Try it Yourself"</a> link.</p>
+    <p>{{$announcement[0]->announcement}}</p>
   </div>
   </div>
   <br>
@@ -172,8 +168,8 @@
 
 
 <div class="row">
-        <div class="card-02">
-        <b><h2 class="www">Vision</h2></b>
+        <div class="card-02"  id="vission">
+        <h2 class="www"><b>Vision</b></h2>
  
  <p>We envisioned Barangay San Julian 
     as a Developed & Progressive Barangay  with people </p> 
@@ -184,7 +180,7 @@
         
         <div class="card-02" id="mission">
         
-        <b><h2 class="www">Mission</h2></b>
+        <h2 class="www"><b>Mission</b></h2>
     <p> Barangay  <b>SAN JULIAN</b> is committed to promote the General 
        welfare of the people and to enhance the socio-economic condition of the people
        through delivery of basic services and to 
@@ -205,6 +201,14 @@
       </footer> 
       
 <style>
+
+  #vission{
+    margin-left: 50px;
+  }
+
+  #administrator{
+    margin-right:-560px;
+  }
 
 .pic{
   width: 10%;
@@ -287,6 +291,9 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
+.www{
+  font-size: 20px;
+}
 
 @media (max-width:800px){
   #mission{
@@ -301,7 +308,7 @@
     font-size: 8px;
   }
 .www{
-  font-size: 17px;
+  font-size: 15px;
 }
 .pic{
   width: 15%;
@@ -323,9 +330,7 @@
     height: 135px;
   }
  
-  #Announcement{
-    color: black;
-  }
+ 
   #horn1{
     color: #ff3333;
   }
@@ -353,9 +358,10 @@
 }
 
 .brand-title {
+  margin-left: -260px;
   padding-top: 10;
   margin-top: 15px;
-    font-size: 25px;
+    font-size: 20px;
     text-align: center;
 
 }
@@ -425,16 +431,20 @@
     height: 5px;
   }
 
+
   .brand-title {
+    margin-left:10px;
   padding-top: 10;
   margin-top: 15px;
-    font-size: 20px;
+    font-size: 18px;
     text-align: center;
     padding-left: 70px;
 
 }
 
-
+#administrator{
+  margin-right: 50px;
+}
 
     .toggle-button {
         display: flex;
@@ -501,6 +511,11 @@
 
 
 
+  footer p {
+    text-align: center;
+    color: white;
+    font-size: 10px;
+} 
 
 
 
@@ -579,6 +594,10 @@
   text-align: center;
   background-color:white;
   width: 100%;
+  border-style: double;
+  border-color: #f2f2f2;
+  border-radius: 0em;
+
 }
 
 

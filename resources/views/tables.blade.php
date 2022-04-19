@@ -8,10 +8,11 @@
         <meta name="author" content="" />
         <title>Tables</title>
 
-
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  icon refresh -->
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script> 
+          
 
     <!-- TO USE AJAX JAVASCRIPT -->
         <script src="path/from/html/page/to/jquery.min.js"></script>
@@ -22,7 +23,7 @@
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
             
-            <a class="navbar-brand ps-3" href="index.html"></a>
+            <!-- <a class="navbar-brand ps-3" href="index.html"></a> -->
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
 
@@ -45,11 +46,11 @@
 
                             <a class="nav-link" href="charts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
+                                Charts & Announcement
                             </a>
                             <a class="nav-link" href="tables">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
+                                Tables & Export Data
                             </a>
                         </div>
                     </div>
@@ -178,27 +179,63 @@
                             <option value="25">25</option>
                             <option value="26">26</option>
                             </select>
-                        </label></div>
+                           
+                        </label>
 
-                        </div>  
+                        <div class="column01">
+                            <label for=""> <center id="searchtext">.</center> 
+                               <button class="button-24 input--style-5" id="searchme" role="button" disabled>Search</button>  
+                            </label>
                         </div>
+                    </div>
+                    </div>
+                </div>
+                       
                         <br><br>
 
                
-                   <div class="column01">
-                        <button class="button-24" id="searchme" role="button" disabled>Search</button>
-                    </form>     
-                       
-                        <form action="tables" method="GET">
-                            <button class="button-25" id="refreshme" role="button">Refresh</button>
-                        </form>        
-                     
-                        <form action="export" method="GET">
-                            <button class="button-25" id="exportme" role="button">Export File</button>
-                         
-                        </form> 
+                  <style>
+
+
+
+                      #searchtext{
+                          color: white;
+                      }
+                      .button_allign{
+                            display: flex;
+                            flex-direction: row;
+                            padding-right: 20px;
+                         }
+                  </style>
+                      
+                    
+        <!-- <a href="#" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-refresh"></span> Refresh
+        </a> -->
+ 
+                    </form>   
+
+                         <div class="column01">
+                        <div class="button_allign">
+                            <form action="tables" method="GET">
+                                <button class="button-25"   id="refreshme" role="button">Refresh</button>
+                            </form>   
+                        </div>
+
+                   
+                   
+                
+                        <div class="button_allign">
+                            <form action="export" method="GET">
+                                <button class="button-25" id="exportme" role="button">Export File</button>
+                            </form> 
+                        </div>
+                        
+                    </div>
+        
+                        
                         <!-- <a href="/export" class="btn btn-primary">Export File</a> -->
-                    </div>   
+                    
 
 
                     <script>
@@ -216,7 +253,7 @@
 
     </script>
            
-                 <center><a href="prnpriview" class="btnprn btn btn-primary">Print Preview</a> </center> 
+                 <!-- <center><a href="prnpriview" class="btnprn btn btn-primary">Print Preview</a> </center>  -->
                  
                  <script type="text/javascript">
                     $(document).ready(function(){
@@ -300,6 +337,13 @@
         </div>
 
 <style>
+
+@media (max-width: 800px) {
+   
+
+    }
+
+
 .botss1{
     display: inline-block;
 }
@@ -374,16 +418,16 @@
 .button-24 {
   /* background: rgba(33, 208, 71, 0.8); */
   background:  #1380d4;
-  border: 1px solid rgba(33, 208, 71, 0.8);
+  border: 1px solid rgba(26, 174, 233, 0.89);
   border-radius: 6px;
-  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-shadow: rgba(26, 174, 233, 0.89) 1px 2px 4px;
   box-sizing: border-box;
   padding-left: 20px;
   color: #FFFFFF;
   cursor: pointer;
   display: inline-block;
   font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 800;
   line-height: 16px;
   min-height: 40px;

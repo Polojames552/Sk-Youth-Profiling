@@ -272,7 +272,7 @@
                                         </div>
                         </form> 
                                         <div class="col-2">
-                                            <form action="http://localhost/SK_YouthProfilling/public/dashboardmain" method="get">
+                                            <form action="dashboardmain" method="get">
                                                         <button class="button-6"  role="button">Cancel</button>
                                             </form>
                                         </div>
