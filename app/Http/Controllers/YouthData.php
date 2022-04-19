@@ -89,7 +89,12 @@ class YouthData extends Controller
     {
      
         $Fname = $request->input('FirstName');
-        $Mname = $request->input('MiddleName');
+        // $Mname = $request->input('MiddleName');
+        if($request->input('MiddleName')==""){
+            $EXTname = " ";
+        }else{
+            $EXTname = $request->input('MiddleName');
+        }
         $Lname = $request->input('LastName');
         if($request->input('Extension')==""){
             $EXTname = " ";
