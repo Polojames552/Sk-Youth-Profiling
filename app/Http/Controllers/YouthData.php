@@ -21,10 +21,11 @@ class YouthData extends Controller
     if($count==0){
         $data = new youth();
         $data->Fname = $request->input('FirstName');
+        // $data->Mname = $request->input('MiddleName');
         if($request->input('MiddleName')==""){
-            $EXTname = " ";
+            $Mname = " ";
         }else{
-            $EXTname = $request->input('MiddleName');
+            $Mname = $request->input('MiddleName');
         }
         $data->Lname = $request->input('LastName');
         if($request->input('Extension')==""){
@@ -95,9 +96,9 @@ class YouthData extends Controller
         $Fname = $request->input('FirstName');
         // $Mname = $request->input('MiddleName');
         if($request->input('MiddleName')==""){
-            $EXTname = " ";
+            $Mname = " ";
         }else{
-            $EXTname = $request->input('MiddleName');
+            $Mname = $request->input('MiddleName');
         }
         $Lname = $request->input('LastName');
         if($request->input('Extension')==""){
