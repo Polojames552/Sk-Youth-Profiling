@@ -81,9 +81,9 @@
                         </div>
                         <div class="row row-space">
                             <div class="col-2">
-                                <div class="input-group">
+                                <div class="input-group" >
                                     <label class="label"><b id="req">*</b>Birthday</label>
-                                    <div class="input-group-icon">
+                                    <div class="input-group-icon" >
                                         <input class="input--style-5 js-datepicker" type="date" min="1980-01-01" max="2999-12-31" name="Birthday" required>
                                         <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                     </div>
@@ -140,7 +140,7 @@
                                 <div class="input-group">
                                     <label class="label"><b id="req">*</b>Purok</label>
                                     <div class="rs-select2 js-select-simple select--no-search">
-                                        <select class="input--style-5" type="text" name="Purok" required>
+                                        <select class="input--style-5" type="text" name="Purok"  required>
                                             <option disabled="disabled" selected="selected"></option>
                                             @foreach ($purok as $purok)
                                                 <option value="{{$purok->purok_name}}">
@@ -329,6 +329,10 @@ button.margin-right {
   
 
 } */
+
+.input55{
+    background:#d9d9d9;
+}
 
 .input--style-5 {
     border: none;
