@@ -305,7 +305,12 @@
                                     @foreach($youth as $youth)
                                         <tr>
                                         <td>{{$youth->id}}</td>
-                                        <td>{{$youth->Fname}} {{$youth->Mname}}<b>.</b> {{$youth->Lname}} {{$youth->EXTname}}</td>
+                                        @if($youth->Mname == " ")
+                                            <td>{{$youth->Lname}}<b>,</b> {{$youth->Fname}}</td>
+                                        @else
+                                            <td>{{$youth->Lname}}<b>,</b> {{$youth->Fname}} {{$youth->Mname[0]}}<b>.</b> {{$youth->EXTname}}</td>
+                                        @endif
+                                       
                                             <!-- <td>{{$youth->Fname}}</td>
                                             <td>{{$youth->Mname}}</td>
                                             <td>{{$youth->Lname}}</td>
