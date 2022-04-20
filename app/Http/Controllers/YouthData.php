@@ -163,13 +163,22 @@ class YouthData extends Controller
         'Sports2' => $Sports2,
         'Sports3' => $Sports3)); 
 
-        return redirect('dashboardmain')->with('success', 'Data Updated');
+        return redirect('dashboardmain')->with('message', 'Data has been Updated');
     }
     public function update_function1(Request $request){
 
         $announce = $request->input('announcement');
         DB::table('users')->update(array('announcement' => $announce));
 
-        return redirect('charts')->with('success', 'Data Updated');
+        return redirect('charts')->with('message', 'Announcement has been Updated');
+    }
+
+    public function destroy($id)
+    {
+    $youth = Youth::findOrFail($id);
+
+    $youth->delete();
+   
+    return redirect('dashboardmain')->with('message', 'The data is successfully deleted!');
     }
 }

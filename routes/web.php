@@ -50,6 +50,7 @@ Route::group(['middleware'=> 'auth'],function(){
     Route::get('/searchme/', [Youth_view::class ,'searchme'])->name('searchme');
 
     Route::get('click_edit/{id}',[YouthData::class ,'edit_function']);
+    Route::delete('/nieuws/{id}', [YouthData::class ,'destroy'])->name('nieuws.destroy');
 
     Route::post('announceEDIT',[YouthData::class ,'update_function1'])->name('update-user');
     Route::post('update-user/{id}',[YouthData::class ,'update_function'])->name('update-user');

@@ -47,6 +47,11 @@
             </div>
             <div id="layoutSidenav_content">
                 <main>
+                @if(session()->has('message'))
+                    <div class="alert alert-success">
+                        {{ session()->get('message') }}
+                    </div>
+                @endif
                     <div class="container-fluid px-4">
                       <h1 class="mt-4">Charts</h1>
                       <center><i><h3 class="mt-4">Total Youth Registered Population: <b id="num">{{$count}}</b></h3></i></center>  
@@ -67,7 +72,7 @@
                                         <i class="fas fa-chart-bar me-1"></i>
                                         Youth Population per PUROK
                                     </div>
-                                    <div id="columnchart_values" style="width: 600px; height: 400px;"></div>
+                                  <div id="columnchart_values" style="width: 600px; height: 400px;"></div>
                                 </div>
                             </div>
 
@@ -174,7 +179,7 @@
 
       var options = {
         title: "Population",
-        width: 600,
+        width: 400,
         height: 400,
         bar: {groupWidth: "95%"},
         legend: { position: "none" },
@@ -234,8 +239,8 @@
 
       var options = {
         title: "Population",
-        width: 600,
-        height: 400,
+        width: 400,
+        height: 300,
         bar: {groupWidth: "95%"},
         legend: { position: "none" },
       };

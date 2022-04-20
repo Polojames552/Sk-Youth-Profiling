@@ -11,25 +11,25 @@
         <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  icon refresh -->
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script> 
-          
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+
 
     <!-- TO USE AJAX JAVASCRIPT -->
         <script src="path/from/html/page/to/jquery.min.js"></script>
         <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
-   
+
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            
+
             <!-- <a class="navbar-brand ps-3" href="index.html"></a> -->
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
 
 
         </nav>
-       
+
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -37,7 +37,7 @@
                         <div class="nav">
                         <img src="image/sklogo.png" width="120%" height="150px" class="center">
                         <h3 class="center">Sangguniang Kabataan</h3>
-                          
+
                             <div class="sb-sidenav-menu-heading">Baranggay San Julian</div>
                             <a class="nav-link" href="dashboardmain">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
@@ -60,14 +60,14 @@
 
             <div id="layoutSidenav_content">
                 <main>
-    
+
                                 <!-- Input HIDDEN -->
                 <!-- <input  type="text" name="sample1" id="sample1"> -->
-               
+
 
             <!-- <script>
                 $(document).ready( function () {
-                
+
                     $("#purok").change(function () {
                         var selectedValue = $(this).val();
                         $('#sample1').val(selectedValue);
@@ -102,21 +102,21 @@
                     $("#searchme").attr('disabled',false)
                     }
             });
-           
+
         });
-            
-        
+
+
             </script>
                     <div class="container-fluid px-4" >
                         <h1 class="mt-4">Tables</h1>
-                        
+
                   <h5>Filterd by:</h5>
        <form action="{{ route('search') }}" method="GET">
                   <div class="row">
                                   <div class="column01">
 
                     <div id="filter">
-                        <label for="">Purok: 
+                        <label for="">Purok:
                             <select class="input--style-5"  id="purok" name="purok">
 
                                       <option value="" selected="selected"></option>
@@ -128,9 +128,9 @@
                             </select>
                         </label>
 </div>
-                                
+
                                   <div class="column01">
-                        <label for="">Gender: 
+                        <label for="">Gender:
                             <select class="input--style-5" name="sex" id="sex">
                                 <option value="" selected="selected"></option>
                                 <option value="Male">Male</option>
@@ -138,10 +138,10 @@
                                 <option value="LGBTQ+">LGBTQ+</option>
                             </select>
                         </label> </div>
- 
+
 
                         <div class="column01">
-                        <label for="">Education: 
+                        <label for="">Education:
                             <select class="input--style-5" name="education" id="education">
                             <option value="" selected="selected"></option>
                                      @foreach ($educ as $educ)
@@ -152,9 +152,9 @@
                             </select>
                         </label></div>
 
-                   
+
                         <div class="column01">
-                        <label for="">Scholars: 
+                        <label for="">Scholars:
                             <select class="input--style-5" name="scholars" id="scholar">
                             <option value="" selected="selected"></option>
                             <option value="Scholar">Scholar</option>
@@ -163,7 +163,7 @@
                         </label></div>
 
                         <div class="column01">
-                        <label for="">Age: 
+                        <label for="">Age:
                             <select class="input--style-5" name="age" id="age">
                             <option value="" selected="selected"></option>
                             <option value="15">15</option>
@@ -179,21 +179,21 @@
                             <option value="25">25</option>
                             <option value="26">26</option>
                             </select>
-                           
+
                         </label>
 
                         <div class="column01">
-                            <label for=""> <center id="searchtext">.</center> 
-                               <button class="button-24 input--style-5" id="searchme" role="button" disabled>Search</button>  
+                            <label for=""> <center id="searchtext">.</center>
+                               <button class="button-24 input--style-5" id="searchme" role="button" disabled>Search</button>
                             </label>
                         </div>
                     </div>
                     </div>
                 </div>
-                       
+
                         <br><br>
 
-               
+
                   <style>
 
 
@@ -207,35 +207,35 @@
                             padding-right: 20px;
                          }
                   </style>
-                      
-                    
+
+
         <!-- <a href="#" class="btn btn-info btn-lg">
           <span class="glyphicon glyphicon-refresh"></span> Refresh
         </a> -->
- 
-                    </form>   
 
-                         <div class="column01">
+                    </form>
+
+                         <div class="column02">
                         <div class="button_allign">
                             <form action="tables" method="GET">
                                 <button class="button-25"   id="refreshme" role="button">Refresh</button>
-                            </form>   
+                            </form>
                         </div>
 
-                   
-                   
-                
+
+
+
                         <div class="button_allign">
                             <form action="export" method="GET">
                                 <button class="button-25" id="exportme" role="button">Export File</button>
-                            </form> 
+                            </form>
                         </div>
-                        
-                    </div>
-        
-                        
+                        </div>
+
+
+
                         <!-- <a href="/export" class="btn btn-primary">Export File</a> -->
-                    
+
 
 
                     <script>
@@ -252,9 +252,9 @@
         }
 
     </script>
-           
+
                  <!-- <center><a href="prnpriview" class="btnprn btn btn-primary">Print Preview</a> </center>  -->
-                 
+
                  <script type="text/javascript">
                     $(document).ready(function(){
                     $('.btnprn').printPage();
@@ -262,7 +262,7 @@
                     $('.print-window').click(function() {
                         window.print();
                     });
-                    </script>  
+                    </script>
 
                       <br><br>
 
@@ -274,7 +274,7 @@
                              <!-- <a href="#" type="button"  class="btn btn-info btn-lg" id="print" onclick="printDiv()">
                               <span class="fa fa-print"></span> Print
                             </a>  -->
-                            
+
                             <div class="card-body" id="bodycard">
                                 <table id="datatablesSimple" border="1px">
                                     <thead>
@@ -302,13 +302,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($youth as $youth) 
+                                    @foreach($youth as $youth)
                                         <tr>
                                         <td>{{$youth->id}}</td>
                                         <td>{{$youth->Fname}} {{$youth->Mname}}<b>.</b> {{$youth->Lname}} {{$youth->EXTname}}</td>
                                             <!-- <td>{{$youth->Fname}}</td>
                                             <td>{{$youth->Mname}}</td>
-                                            <td>{{$youth->Lname}}</td> 
+                                            <td>{{$youth->Lname}}</td>
                                             <td>{{$youth->EXTname}}</td>  -->
                                             <td>{{$youth->Bday}}</td>
                                             <td>{{$youth->Age}}</td>
@@ -338,8 +338,39 @@
 
 <style>
 
+
+
 @media (max-width: 800px) {
-   
+    .column01 {
+    width: 100%;
+     display: block;
+
+  }
+
+  /* #purok {
+  border: none;
+  line-height: 50px;
+  background:#f2f2f2;
+  width: 100%;
+  font-size: 16px;
+  color: #666;
+
+} */
+
+.column02 {
+  float: left;
+  width: 50%;
+
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  width: 50%;
+}
+
+
 
     }
 
@@ -350,15 +381,23 @@
 .column01 {
   float: center;
   width: 100%;
-  padding: 0 8px;
+  padding: 10 2px;
   display: flex;
-  
+
+}
+
+.column02 {
+  float: center;
+  width: 100%;
+  padding: 10 2px;
+  display: flex;
+
 }
 
 @media screen and (max-width: 650px) {
   .column01 {
-    width: 150%;
-    /* display: block; */
+    width: 100%;
+     display: block;
   }
 #boxx{
     width: 100%;
@@ -369,7 +408,7 @@
 #filter{
     width:  100%;
     justify-content: space-between;
-} 
+}
 
 @media (max-width: 800px) {
     #print{
@@ -388,14 +427,14 @@
 
 .input--style-5 {
   border: none;
-  line-height: 50px;
+  /* line-height: 50px; */
   background:#f2f2f2;
   height: 40px;
-  width: 100%;
+  width: 80%;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  padding: 0 20px;
+  /* padding: 0 10px; */
   font-size: 16px;
   color: #666;
   -webkit-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
@@ -411,7 +450,7 @@
         background: #1380d4;
     }
     #print:hover {
-  background-color: #51a9ed; 
+  background-color: #51a9ed;
   /* background-position: 0 0;
   color: #2487d4; */
 }
@@ -440,6 +479,7 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: middle;
+  width: 100%;
 }
 
 .button-24:hover,

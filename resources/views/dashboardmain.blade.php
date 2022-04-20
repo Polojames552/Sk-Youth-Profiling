@@ -9,6 +9,8 @@
         <title>Dashboard-Sk Admin</title>
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>   <!-- humburgerv link-->
+      
+    
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -62,6 +64,12 @@
             </div>
             <div id="layoutSidenav_content">
                 <main>
+                @if(session()->has('message'))
+                    <div class="alert alert-success">
+                        {{ session()->get('message') }}
+                    </div>
+                @endif
+
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">Dashboard</h1>
                        
@@ -80,7 +88,7 @@
                                         <i class="fas fa-chart-bar me-1"></i>
                                         Youth Population per PUROK
                                     </div>
-                                    <div id="columnchart_values" style="width: 400px; height: 300px;"></div>
+                                  <div  id="columnchart_values" style="width: 100%; height: 400px;"></div>
                                 </div>
                             </div>
 
@@ -94,7 +102,7 @@
                                 </div>
                             </div>
                         </div>
-                       
+
                         <div class="card mb-4"  id="purok">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
@@ -127,6 +135,7 @@
                                     <tbody>
                                     @foreach($youth as $youth) 
                                         <tr>
+                                            <td class="hidden" id="youth_id">{{$youth->Fname}}</td>
                                             <td>{{$youth->Fname}}</td>
                                             <td>{{$youth->Mname}}</td>
                                             <td>{{$youth->Lname}}</td>
@@ -145,9 +154,16 @@
                                             <td>{{$youth->Sports1}}</td>
                                             <td>{{$youth->Sports2}}</td>
                                             <td>{{$youth->Sports3}}</td>
-                                            <td><a class="button-24"  href="click_edit/{{$youth->id}}">Edit</a></td> 
-                                            <!-- HTML !-->
-
+                                            <td><a class="button-24"  href="click_edit/{{$youth->id}}">Edit</a></td>
+                                            
+                                                 <!-- <form method="POST" action="{{ route('nieuws.destroy', [$youth->id]) }}"> 
+                                                {{ csrf_field() }}
+                                                {{ method_field('DELETE') }} -->
+                                            <td>
+                                                <button type="button" class="button-25" id="btndelete">Delete</button>
+                                            </td>
+                                                <!-- </form>  -->
+                                       
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -156,9 +172,18 @@
                         </div>
                     </div>
                 </main>
-
             </div>
+   
         </div>
+        <script>
+                $(document).ready(function () {
+                    $('#btndelete').click(function(e){
+                    e.preventDefault();
+                    alert('Hello');
+                    });
+
+                });
+        </script>
  <!-- BAR GRAPH Purok Population -->
  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
@@ -186,7 +211,7 @@
 
       var options = {
         title: "Population",
-        width: 600,
+        width: 400,
         height: 400,
         bar: {groupWidth: "95%"},
         legend: { position: "none" },
@@ -215,10 +240,16 @@
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
         chart.draw(data, options);
-      }
+      }  
+
     </script>
 
+
+
 <style>
+
+
+
 @media (max-width: 800px) {
     .card{
         width: 520px;
@@ -238,6 +269,8 @@
        height: 50px;
        width: 50px;
    }
+
+
 
 
 
@@ -279,9 +312,43 @@
   color: rgba(33, 208, 71, 0.8);
 }
 
-.button-24:active {
+.button-24:active,
+.button-25:active {
   opacity: .5;
 }
+
+
+.button-25 {
+  background: rgba(243, 46, 53, 0.8);
+  border: 1px solid rgba(243, 46, 53, 0.8);
+  border-radius: 6px;
+  box-shadow: rgba(243, 46, 53, 0.8) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+.button-25:hover,
+.button-25:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: rgba(243, 46, 53, 0.8);
+}
+
 </style>
 
         <script src="js/scripts.js"></script>
