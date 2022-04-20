@@ -257,12 +257,14 @@
 
     #purok {
         height: 400px;
-        width: 350px;
+        /* width: 350px; */
+        width: 110%;
     }
 
     #pie {
         height: 400px;
-        width: 350px;
+        /* width: 350px; */
+        width: 110%;
     }
 
    #piechart{
