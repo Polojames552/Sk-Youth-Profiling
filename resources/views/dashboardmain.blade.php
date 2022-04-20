@@ -93,7 +93,7 @@
                             </div>
 
                             <div class="col-lg-6">
-                                <div class="card mb-4"  id="pie">
+                                <div class="card mb-4"  id="purok">
                                     <div class="card-header">
                                         <i class="fas fa-chart-pie me-1"></i>
                                         Youth Population by GENDER
@@ -257,14 +257,12 @@
 
     #purok {
         height: 400px;
-        /* width: 350px; */
-        width: 110%;
-    }
+         width: 330px; 
+      
 
-    #pie {
-        height: 400px;
-        /* width: 350px; */
-        width: 110%;
+         #pie {
+        height: 300px;
+        width: 330px;
     }
 
    #piechart{

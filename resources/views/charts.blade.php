@@ -136,16 +136,17 @@
 
     #purok{
         height: 400px;
-        width: 350px;
+        width: 330px;
     }
 
     #pie {
-        height: 400px;
-        width: 350px;
+        height: 300px;
+        width: 330px;
     }
+    
     #announcement{
-      height: 200px;
-        width: 350px;
+      height: 250px;
+        width: 330px;
     }
 
     }
