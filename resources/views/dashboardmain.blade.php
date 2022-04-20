@@ -135,6 +135,7 @@
                                     <tbody>
                                     @foreach($youth as $youth) 
                                         <tr>
+                                            <input type="hidden" id="youth_id" value="{{$youth->id}}">
                                             <td>{{$youth->Fname}}</td>
                                             <td>{{$youth->Mname}}</td>
                                             <td>{{$youth->Lname}}</td>

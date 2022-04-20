@@ -94,7 +94,7 @@
                                 <label class="label"><b id="req">*</b>Gender</label>
                                 <div class="rs-select2 js-select-simple select--no-search">
                                     <select class="input--style-5" type="text" name="Sex" required>
-                                        <option disabled="disabled" selected="selected">Choose option</option>
+                                        <option disabled="disabled" selected="selected"></option>
                                         <option>Male</option>
                                         <option>Female</option>
                                         <option>LGBTQ+</option>
@@ -125,7 +125,7 @@
                                   <label class="label"><b id="req">*</b>Educational Status</label>
                                   <div class="rs-select2 js-select-simple select--no-search">
                                       <select class="input--style-5" type="text" name="EducStatus" required>
-                                      <option disabled="disabled" selected="selected">Choose option</option>
+                                      <option disabled="disabled" selected="selected"></option>
                                      @foreach ($educ as $educ)
                                           <option value="{{$educ->EducStatus}}">
                                           {{$educ->EducStatus}}
@@ -141,7 +141,7 @@
                                     <label class="label"><b id="req">*</b>Purok</label>
                                     <div class="rs-select2 js-select-simple select--no-search">
                                         <select class="input--style-5" type="text" name="Purok" required>
-                                            <option disabled="disabled" selected="selected">Choose option</option>
+                                            <option disabled="disabled" selected="selected"></option>
                                             @foreach ($purok as $purok)
                                                 <option value="{{$purok->purok_name}}">
                                                 {{$purok->purok_name}}
@@ -160,7 +160,7 @@
                                   <label class="label"><b id="req">*</b>Person With Disability (PWD)</label>
                                   <div class="rs-select2 js-select-simple select--no-search">
                                       <select class="input--style-5" type="text" name="PWD" required>
-                                          <option disabled="disabled" selected="selected">Choose option</option>
+                                          <option disabled="disabled" selected="selected"></option>
                                           <option>Yes</option>
                                           <option>No</option>
                                       </select>
@@ -174,7 +174,7 @@
                                     <label class="label"><b id="req">*</b>Civil Status</label>
                                     <div class="rs-select2 js-select-simple select--no-search">
                                         <select class="input--style-5" type="text" name="CivilStatus" required>
-                                            <option disabled="disabled" selected="selected">Choose option</option>
+                                            <option disabled="disabled" selected="selected"></option>
                                             <option>Single</option>
                                             <option>Married</option>
                                             <option>Widowed</option>
@@ -191,7 +191,7 @@
                                   <label class="label"><b id="req">*</b>Scholarship</label>
                                   <div class="rs-select2 js-select-simple select--no-search">
                                       <select class="input--style-5" type="text" name="Scholarship" required>
-                                          <option disabled="disabled" selected="selected">Choose option</option>
+                                          <option disabled="disabled" selected="selected"></option>
                                           <option>None</option>
                                           <option>Scholar</option>
                                       </select>
@@ -206,7 +206,7 @@
                                     <input class="input--style-4" type="text" name="Occupation" >
                                 </div>
                             </div>
-
+                            
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Sports(1)</label>
