@@ -135,7 +135,6 @@
                                     <tbody>
                                     @foreach($youth as $youth) 
                                         <tr>
-                                            <td class="hidden" id="youth_id">{{$youth->Fname}}</td>
                                             <td>{{$youth->Fname}}</td>
                                             <td>{{$youth->Mname}}</td>
                                             <td>{{$youth->Lname}}</td>
