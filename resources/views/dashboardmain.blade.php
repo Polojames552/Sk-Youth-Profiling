@@ -10,7 +10,13 @@
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>   <!-- humburgerv link-->
       
-    
+        <!-- jquery document ready -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+        <!-- Modal popup bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -109,9 +115,10 @@
                                 DataTable Example
                             </div>
                             <div class="card-body"id="bodycard">
-                                <table id="datatablesSimple">
+                                <table id="datatablesSimple" class="TableData">
                                     <thead>
                                         <tr>
+                                            <!-- <th>ID</th> -->
                                             <th>First Name</th>
                                             <th>Middle Name</th>
                                             <th>Last Name</th>
@@ -135,7 +142,8 @@
                                     <tbody>
                                     @foreach($youth as $youth) 
                                         <tr>
-                                            <input type="hidden" id="youth_id" value="{{$youth->id}}">
+                                             <input type="hidden" id="youth_id" value="{{$youth->id}}">
+                                            <td>{{$youth->id}}</td>
                                             <td>{{$youth->Fname}}</td>
                                             <td>{{$youth->Mname}}</td>
                                             <td>{{$youth->Lname}}</td>
@@ -155,35 +163,88 @@
                                             <td>{{$youth->Sports2}}</td>
                                             <td>{{$youth->Sports3}}</td>
                                             <td><a class="button-24"  href="click_edit/{{$youth->id}}">Edit</a></td>
-                                            
-                                                 <!-- <form method="POST" action="{{ route('nieuws.destroy', [$youth->id]) }}"> 
-                                                {{ csrf_field() }}
-                                                {{ method_field('DELETE') }} -->
                                             <td>
-                                                <button type="button" class="button-25" id="btndelete">Delete</button>
+                                                <!-- <button type="button" class="button-25" id="btndelete">Delete</button> -->
+                                                 <a href="javascript:void(0)" class="button-25" id="deletebtn">Delete</a>
+                                                <!-- <button type="button" class="btn btn-danger deletebtn">Delete</button> -->
+                                                <!-- <button type="button" class="btn btn-danger servideletevebtn">Delete</button> -->
                                             </td>
                                                 <!-- </form>  -->
-                                       
                                         </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                    </div>
+                    </div>  
                 </main>
             </div>
-   
-        </div>
-        <script>
-                $(document).ready(function () {
-                    $('#btndelete').click(function(e){
-                    e.preventDefault();
-                    alert('Hello');
-                    });
 
-                });
+<!-- Modal delete -->
+<div class="modal fade" id="deletemodalpop" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete Youth Data</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+     
+      <form id="delete_modal_Form" method="POST"> 
+            {{ csrf_field() }}
+            {{ method_field('DELETE') }}
+            <div class="modal-body">
+<h4></h4>
+            <p>Are you sure you want to <b id="deletem">DELETE</b> this data?</p>
+                <input type="hidden" id="delete_youth_id">
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancel</button>
+        </form> 
+            </div>
+    </div>
+  </div>
+</div>
+<!-- Modal delete -->
+
+        </div>
+
+            
+        <script>
+              $(document).ready(function(){
+               
+
+                  $('.TableData').on('click', '#deletebtn', function(){
+                      
+                    $tr = $(this).closest('tr');
+
+                      var data = $tr.children("td").map(function(){
+                          return $(this).text();
+                      }).get();
+
+                      $('#delete_youth_id').val(data[0]);
+                    //   $('#youth_name').val(data[1]);
+                      $('#delete_modal_Form').attr('action', 'youth-delete/'+data[0]);
+
+                      $('#deletemodalpop').modal('show');
+                  });
+
+                //  $('.deletebtn').click(function (e){
+                //      e.preventDefault();
+
+                //      var delete_id = $('#youth_id').val();
+                //      $('#delete_youth_id').val(delete_id);
+                //  });
+
+                // $('.servideletevebtn').click(function (e){
+                //     e.preventDefault();
+                //     alert('hello');
+                // });
+              });
         </script>
+
+        
+        
  <!-- BAR GRAPH Purok Population -->
  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
@@ -247,7 +308,9 @@
 
 
 <style>
-
+#deletem{
+    color:red;
+}
 
 
 @media (max-width: 800px) {
@@ -258,25 +321,22 @@
     #purok {
         height: 400px;
          width: 330px; 
-      
+    }
 
          #pie {
         height: 300px;
         width: 330px;
-    }
+         }
+    
 
    #piechart{
        height: 50px;
        width: 50px;
    }
 
-
-
-
-
-    #bodycard{
-    width: 100%;
-}
+            #bodycard{
+            width: 100%;
+        }
 
     }
     
@@ -348,8 +408,8 @@
   background-position: 0 0;
   color: rgba(243, 46, 53, 0.8);
 }
-
 </style>
+
 
         <script src="js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>   <!-- grap link-->

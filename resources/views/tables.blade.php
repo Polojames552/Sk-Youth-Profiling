@@ -7,7 +7,8 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Tables</title>
-
+<!-- font awesome refresh -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">  icon refresh -->
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
@@ -181,61 +182,50 @@
                             </select>
 
                         </label>
+                        </div>
 
-                        <div class="column01">
+                        <div class="column02">
+                        <div class="button_allign">
                             <label for=""> <center id="searchtext">.</center>
-                               <button class="button-24 input--style-5" id="searchme" role="button" disabled>Search</button>
+                               <button class="button-24 input--style-5" id="searchme" role="button" disabled><i class="fas fa-search"></i></button>
                             </label>
                         </div>
-                    </div>
-                    </div>
+                        </form>
+
+                        <div class="button_allign">
+                            <form action="tables" method="GET">
+                            <label for=""> <center id="searchtext">.</center>
+                                <button class="button-25 input--style-5"   id="refreshme" role="button"><i class="fas fa-redo"></i></button>
+                            </form>
+                            </div>
+                            <div class="button_allign">
+                            <form action="export" method="GET">
+                            <label for=""> <center id="searchtext">.</center>
+                                <button class="button-26 input--style-5" id="exportme" role="button"><i class="fas fa-file-download"></i></button>
+                            </form>
+                            </div>
+                        </div>
+
+                
                 </div>
+                
+                  
 
-                        <br><br>
+<br><br><br>
 
-
-                  <style>
-
-
-
-                      #searchtext{
-                          color: white;
-                      }
+                        <!-- <a href="/export" class="btn btn-primary">Export File</a> -->
+                    
+                    
+                    <style>
+                        #searchtext{
+                            color: white;
+                        }
                       .button_allign{
                             display: flex;
                             flex-direction: row;
-                            padding-right: 20px;
+                            padding-right: 10px;
                          }
                   </style>
-
-
-        <!-- <a href="#" class="btn btn-info btn-lg">
-          <span class="glyphicon glyphicon-refresh"></span> Refresh
-        </a> -->
-
-                    </form>
-
-                         <div class="column02">
-                        <div class="button_allign">
-                            <form action="tables" method="GET">
-                                <button class="button-25"   id="refreshme" role="button">Refresh</button>
-                            </form>
-                        </div>
-
-
-
-
-                        <div class="button_allign">
-                            <form action="export" method="GET">
-                                <button class="button-25" id="exportme" role="button">Export File</button>
-                            </form>
-                        </div>
-                        </div>
-
-
-
-                        <!-- <a href="/export" class="btn btn-primary">Export File</a> -->
-
 
 
                     <script>
@@ -341,9 +331,8 @@
             </div>
         </div>
 
+
 <style>
-
-
 
 @media (max-width: 800px) {
     .column01 {
@@ -396,19 +385,27 @@
   width: 100%;
   padding: 10 2px;
   display: flex;
-
 }
 
-@media screen and (max-width: 650px) {
-  .column01 {
-    width: 100%;
-     display: block;
-  }
-#boxx{
-    width: 100%;
-}
+        @media screen and (max-width: 650px) {
+                .column01 {
+                    width: 100%;
+                    display: block;
+                }
+                #boxx{
+                    width: 100%;
+                }
 
-}
+                .button_allign{
+                display: flex;
+                flex-direction: row;
+                padding-right: 10px;
+                }
+                .column02 {
+                    margin-bottom: 25px;
+                }
+
+        }
 
 #filter{
     width:  100%;
@@ -462,9 +459,9 @@
 .button-24 {
   /* background: rgba(33, 208, 71, 0.8); */
   background:  #1380d4;
-  border: 1px solid rgba(26, 174, 233, 0.89);
+  border: 1px solid #1380d4;
   border-radius: 6px;
-  box-shadow: rgba(26, 174, 233, 0.89) 1px 2px 4px;
+  box-shadow: #1380d4 1px 2px 4px;
   box-sizing: border-box;
   padding-left: 20px;
   color: #FFFFFF;
@@ -494,21 +491,37 @@
   color:  #1380d4;
 }
 
-.button-24:active {
+
+.button-24:active{
+  opacity: .5;
+}
+.button-25:active{
+  opacity: .5;
+}
+.button-26:active {
   opacity: .5;
 }
 
+.button-25:hover,
+.button-25:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: rgba(0, 206, 214, 0.79);
+}
+
 .button-25 {
-  background: rgba(33, 208, 71, 0.8);
-  border: 1px solid rgba(33, 208, 71, 0.8);
+/* background: rgba(33, 208, 71, 0.8); */
+background:  rgba(0, 206, 214, 0.79);
+  border: 1px solid rgba(0, 206, 214, 0.79);
   border-radius: 6px;
-  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-shadow: rgba(0, 206, 214, 0.79) 1px 2px 4px;
   box-sizing: border-box;
+  padding-left: 20px;
   color: #FFFFFF;
   cursor: pointer;
   display: inline-block;
   font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 800;
   line-height: 16px;
   min-height: 40px;
@@ -521,18 +534,46 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: middle;
+  width: 100%;
 }
 
-.button-25:hover,
-.button-25active {
+
+.button-26:hover,
+.button-26:active {
   background-color: initial;
   background-position: 0 0;
-  color: rgba(33, 208, 71, 0.8);
+  color:#17b343;
 }
 
-.button-25:active {
-  opacity: .5;
+.button-26 {
+    background:  #17b343;
+  border: 1px solid rgba(18, 209, 47, 0.8);
+  border-radius: 6px;
+  box-shadow: rgba(18, 209, 47, 0.8) 1px 2px 4px;
+  box-sizing: border-box;
+  padding-left: 20px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: 100%;
 }
+
+
+
 
 </style>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

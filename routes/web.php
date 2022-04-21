@@ -43,14 +43,15 @@ Route::get('/SKform',[Youth_view::class ,'data2'])->name('SKform');
 
 Route::group(['middleware'=> 'auth'],function(){
 
-    Route::get('/dashboardmain',[Youth_view::class ,'show']);
+    Route::get('/dashboardmain',[Youth_view::class ,'show'])->name('dashboardmain');
 
     
     Route::get('/search/', [Youth_view::class ,'search'])->name('search');
     Route::get('/searchme/', [Youth_view::class ,'searchme'])->name('searchme');
 
     Route::get('click_edit/{id}',[YouthData::class ,'edit_function']);
-    Route::delete('/nieuws/{id}', [YouthData::class ,'destroy'])->name('nieuws.destroy');
+    // Route::delete('/nieuws/{id}', [YouthData::class ,'destroy'])->name('nieuws.destroy');
+    Route::delete('youth-delete/{id}', [YouthData::class ,'destroy']);
 
     Route::post('announceEDIT',[YouthData::class ,'update_function1'])->name('update-user');
     Route::post('update-user/{id}',[YouthData::class ,'update_function'])->name('update-user');

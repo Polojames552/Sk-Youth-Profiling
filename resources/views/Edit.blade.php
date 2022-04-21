@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>SK Form</title>
-
     <!-- Icons font CSS-->
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
     <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
@@ -44,9 +43,12 @@
                   
                    <form action="{{ route ('update-user' , $youth[0]->id) }} " method="post" enctype="multipart/form-data">
                       {{ csrf_field() }}
+                     
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
+                                  <!-- delete id value -->
+                                <input class="input--style-4" type="hidden" name="Youth_Id" value="{{$youth[0]->id}}" required>
                                     <label class="label">First Name</label>
                                     <input class="input--style-4" type="text" name="FirstName" value="{{$youth[0]->Fname}}" required>
                                 </div>
@@ -231,7 +233,7 @@
                                           <option selected>None</option>
                                         </select>
                                 @endif
-                                      <div class="select-dropdown"></div>
+                                     </div>
                                   </div>
                               </div>
 
@@ -240,8 +242,9 @@
                                     <label class="label">Occupation</label>
                                     <input class="input--style-4" type="text" name="Occupation" value="{{$youth[0]->Occupation}}" >
                                 </div>
-                            </div>
-
+                              </div>
+                          </div>
+                          <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Sports(1)</label>
@@ -254,25 +257,27 @@
                                     <label class="label">(2)</label>
                                     <input class="input--style-4" type="text" name="Sports2" value="{{$youth[0]->Sports2}}" >
                                 </div>
+                              </div>
                             </div>
-
+                            <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">(3)</label>
                                     <input class="input--style-4" type="text" name="Sports3" value="{{$youth[0]->Sports3}}" >
                                 </div>
                             </div>
-                              
+                            </div>
+
                             </div>
                             </div>
                             <div class="row row-space">
-                                
                                         <div class="col-2" style="float:right">
-                                         <button class="button-5"  style="float:right;" role="button">Update</button>
+                                            <button class="button-5"  style="float:right;" role="button">Update</button>
                                         </div>
-                        </form> 
+
+                                        </form> 
                                         <div class="col-2">
-                                            <form action="dashboardmain" method="get">
+                                            <form action="{{route('dashboardmain')}}" method="get">
                                                         <button class="button-6"  role="button">Cancel</button>
                                             </form>
                                         </div>
@@ -280,6 +285,9 @@
                         </div>
                         
                         <!-- HTML !-->
+        </div>
+
+
                     
 
 <style>
