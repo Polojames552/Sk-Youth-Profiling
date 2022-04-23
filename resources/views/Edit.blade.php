@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>SK Form</title>
+
     <!-- Icons font CSS-->
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
     <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
@@ -28,7 +29,7 @@
                   
                    <center><img src="image/SKcover.png" width="75%" height="70%" alt=""></center>
 
-                   <center>  <h2 class="title" id="Edit1">Edit Youth Data</h2></center>
+                   <center>  <h2 class="title">Edit Youth Data</h2></center>
                   
                    <!-- <div class="error"> -->
                        <!-- Validation Errors -->
@@ -39,23 +40,27 @@
                 <x-auth-validation-errors class="mb-4" :errors="$errors" />
           
          </x-guest-layout>
+         <style>
+             #req{
+                 color:red;
+             }
+         </style>
                    <!-- </div> -->
-                  
+                   
+                  <b><b id="req">*</b><i>Required</i></b>
+                   <br><br>
                    <form action="{{ route ('update-user' , $youth[0]->id) }} " method="post" enctype="multipart/form-data">
                       {{ csrf_field() }}
-                     
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                  <!-- delete id value -->
-                                <input class="input--style-4" type="hidden" name="Youth_Id" value="{{$youth[0]->id}}" required>
-                                    <label class="label">First Name</label>
+                                <label class="label">First Name</label>
                                     <input class="input--style-4" type="text" name="FirstName" value="{{$youth[0]->Fname}}" required>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Middle Name</label>
+                                <label class="label">Middle Name</label>
                                     <input class="input--style-4" type="text" name="MiddleName" value="{{$youth[0]->Mname}}" required>
                                 </div>
                             </div>
@@ -63,44 +68,50 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Last Name</label>
+                                <label class="label">Last Name</label>
                                     <input class="input--style-4" type="text" name="LastName" value="{{$youth[0]->Lname}}" required>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Name Extension</label>
+                                <label class="label">Name Extension</label>
                                     <input class="input--style-4" type="text" name="Extension" value="{{$youth[0]->EXTname}}"placeholder="(Ex. Jr.)">
                                 </div>
                             </div>
                         </div>
                         <div class="row row-space">
                             <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Birthday</label>
-                                    <div class="input-group-icon">
-                                        <input class="input--style-5 js-datepicker" type="date" name="Birthday" value="{{$youth[0]->Bday}}" required>
+                                <div class="input-group" >
+                                    <label class="label"><b id="req">*</b>Birthday</label>
+                                    <div class="input-group-icon" >
+                                    <input class="input--style-5 js-datepicker" type="date" name="Birthday" value="{{$youth[0]->Bday}}" required>
                                         <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-2">
                               <div class="input-group">
-                                <label class="label">Sex</label>
+                                <label class="label"><b id="req">*</b>Gender</label>
                                 <div class="rs-select2 js-select-simple select--no-search">
-                              
                                 @if($youth[0]->Sex == 'Male')
                                     <select class="input--style-5" type="text" name="Sex" required>
                                         <option selected>{{$youth[0]->Sex}}</option>
                                         <option>Female</option>
+                                        <option>LGBTQ+</option>
                                     </select>
                                 @elseif($youth[0]->Sex == 'Female')
                                     <select class="input--style-5" type="text" name="Sex" required>
                                         <option selected>{{$youth[0]->Sex}}</option>
                                         <option>Male</option>
+                                        <option>LGBTQ+</option>
                                     </select>
+                                @elseif($youth[0]->Sex == 'LGBTQ+')
+                                <select class="input--style-5" type="text" name="Sex" required>
+                                    <option selected>{{$youth[0]->Sex}}</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
                                 @endif
-
                                     <div class="select-dropdown"></div>
                                 </div>
                               </div>
@@ -109,25 +120,23 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Parent Name</label>
+                                <label class="label">Parent Name</label>
                                     <input class="input--style-4" type="text" name="ParentName" value="{{$youth[0]->parent}}" required>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Phone Number</label>
+                                <label class="label">Phone Number</label>
                                     <input class="input--style-4" type="phone" name="CPno" value="{{$youth[0]->CPno}}" maxlength="11" required>
                                 </div>
                             </div>
                         </div>
 
-
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                  <label class="label">Educational Status</label>
+                                  <label class="label"><b id="req">*</b>Educational Status</label>
                                   <div class="rs-select2 js-select-simple select--no-search">
-                                
                                   <select class="input--style-5" type="text" name="EducStatus" required>
                                         <option value="{{$youth[0]->EducStatus}}" selected>{{$youth[0]->EducStatus}}</option>
                                         @foreach ($educ as $educ)
@@ -137,19 +146,15 @@
                                             @else
                                             @endif
                                         @endforeach
-                                        
                                   </select>
-
                                       <div class="select-dropdown"></div>
                                   </div>
                                 </div>
                             </div>
-
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Purok</label>
+                                    <label class="label"><b id="req">*</b>Purok</label>
                                     <div class="rs-select2 js-select-simple select--no-search">
-                                        
                                     <select class="input--style-5" type="text" name="Purok" required>
                                         <option value="{{$youth[0]->Purok}}" selected>{{$youth[0]->Purok}}</option>
                                             @foreach ($purok as $purok)
@@ -160,7 +165,6 @@
                                                 @endif
                                             @endforeach
                                     </select>
-
                                         <div class="select-dropdown"></div>
                                     </div>
                                 </div>
@@ -170,19 +174,19 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                  <label class="label">Person With Disability (PWD)</label>
+                                  <label class="label"><b id="req">*</b>Person With Disability (PWD)</label>
                                   <div class="rs-select2 js-select-simple select--no-search">
-                            @if($youth[0]->PWD == 'Yes')
+                                  @if($youth[0]->PWD == 'Yes')
                                     <select class="input--style-5" type="text" name="PWD" required>
                                           <option selected>Yes</option>
                                           <option>No</option>
                                     </select>
-                            @elseif($youth[0]->PWD == 'No') 
-                                    <select class="input--style-5" type="text" name="PWD" required>
-                                          <option>Yes</option>
-                                          <option selected>No</option>
-                                    </select>
-                            @endif
+                                  @elseif($youth[0]->PWD == 'No') 
+                                          <select class="input--style-5" type="text" name="PWD" required>
+                                                <option>Yes</option>
+                                                <option selected>No</option>
+                                          </select>
+                                  @endif
                                       <div class="select-dropdown"></div>
                                   </div>
                                 </div>
@@ -190,7 +194,7 @@
 
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Civil Status</label>
+                                    <label class="label"><b id="req">*</b>Civil Status</label>
                                     <div class="rs-select2 js-select-simple select--no-search">
                                     @if($youth[0]->CivilStatus == 'Single') 
                                         <select class="input--style-5" type="text" name="CivilStatus" required>
@@ -220,9 +224,9 @@
                         <div class="row row-space">
                             <div class="col-2">
                               <div class="input-group">
-                                  <label class="label">Scholarship</label>
+                                  <label class="label"><b id="req">*</b>Scholarship</label>
                                   <div class="rs-select2 js-select-simple select--no-search">
-                                @if($youth[0]->Scholarship == 'Scholar') 
+                                  @if($youth[0]->Scholarship == 'Scholar') 
                                       <select class="input--style-5" type="text" name="Scholarship" required>
                                           <option selected>Scholar</option>
                                           <option>None</option>
@@ -233,76 +237,194 @@
                                           <option selected>None</option>
                                         </select>
                                 @endif
-                                     </div>
+                                      <div class="select-dropdown"></div>
                                   </div>
                               </div>
+                            </div>
 
-                              <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Occupation</label>
-                                    <input class="input--style-4" type="text" name="Occupation" value="{{$youth[0]->Occupation}}" >
-                                </div>
-                              </div>
-                          </div>
-                          <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Sports(1)</label>
+                                <label class="label">Occupation</label>
+                                    <input class="input--style-4" type="text" name="Occupation" value="{{$youth[0]->Occupation}}" >
+                                </div>
+                            </div>
+                            
+                            <div class="col-2">
+                                <div class="input-group">
+                                <label class="label">Sports(1)</label>
                                     <input class="input--style-4" type="text" name="Sports1" value="{{$youth[0]->Sports1}}" >
                                 </div>
                             </div>
 
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">(2)</label>
+                                <label class="label">(2)</label>
                                     <input class="input--style-4" type="text" name="Sports2" value="{{$youth[0]->Sports2}}" >
                                 </div>
-                              </div>
                             </div>
-                            <div class="row row-space">
+
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">(3)</label>
+                                <label class="label">(3)</label>
                                     <input class="input--style-4" type="text" name="Sports3" value="{{$youth[0]->Sports3}}" >
                                 </div>
                             </div>
                             </div>
-
                             </div>
-                            </div>
+                            
+                            
                             <div class="row row-space">
-                                        <div class="col-2" style="float:right">
-                                            <button class="button-5"  style="float:right;" role="button">Update</button>
-                                        </div>
-
-                                        </form> 
+                            <!-- <div class="bttn"> -->
+                            <div class="flex-parent jc-center">
+                                        <!-- <div class="col-2"  id="sub"> -->
                                         <div class="col-2">
-                                            <form action="{{route('dashboardmain')}}" method="get">
+                                         <button class="button-5" role="button">Update</button>
+                                        </div>
+                        </form> 
+                                        <!-- <div class="col-2" id="cancel"> -->
+                                        <div class="col-2">
+                                        <form action="{{route('dashboardmain')}}" method="get">
                                                         <button class="button-6"  role="button">Cancel</button>
                                             </form>
                                         </div>
                                 </div>
+                                </div>
                         </div>
                         
+
+
                         <!-- HTML !-->
-        </div>
-
-
                     
 
 <style>
- 
+   
 /* .error{
     background-color:#f23339;
 } */
+
+.flex-parent {
+  display: flex;
+  padding-bottom: 50px;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+button.margin-right {
+  margin-right: 20px;
+}
+
+.bttn{
+    padding-bottom: 50px;
+    justify-content: center;
+  
+  
+   
+}
+
+@media (max-width:800px){
+   
+    .bttn{
+    padding-bottom: 50px;
+    justify-content: center;
+    /* margin-right: 100px;
+    margin-left: 150px; */
+   
+}
+
+.flex-parent {
+ 
+  display: block;
+    width: 250px;  
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+  
+}
+
+    
+    /* #cancel{
+    margin-top: -50px;
+    margin-left: 100px;
+    padding-left: 100px;
+}
+    padding-right: 10px;
+
+#sub{
+    padding-right: 100px;
+    margin-right: 100px;
+   
+} */
+}
+
+/* #sub{
+    padding-right: 10px;
+   
+} */
               
+/* #cancel{
+    padding-bottom: 50px;
+  
+
+} */
+
+.input55{
+    background:#d9d9d9;
+}
+
+.input--style-5 {
+    border: none;
+  line-height: 50px;
+  background:#f2f2f2;
+  height: 50px;
+  width: 100%;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding: 0 20px;
+  font-size: 16px;
+  color: #666;
+  -webkit-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+
+
+.input--style-4 {
+  line-height: 50px;
+  background:#f2f2f2;
+  -webkit-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding: 0 20px;
+  font-size: 16px;
+  color: #666;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+
 .button-5 {
   align-items: center;
   background-clip: padding-box;
-  background-color: #00b33c;
+  background-color: #0571ff;
   border: 1px solid transparent;
   border-radius: .25rem;
-  box-shadow: rgba(6, 216, 27, 0.8) 0 1px 3px 0;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
@@ -310,11 +432,12 @@
   font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 16px;
   font-weight: 600;
-  justify-content: center;
+  justify-content: space-between;
   line-height: 1.25;
   margin: 0;
   min-height: 3rem;
-  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  padding: 10px 79px;
+  margin-left: 80px;
   position: relative;
   text-decoration: none;
   transition: all 250ms;
@@ -322,14 +445,14 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: baseline;
-  width: auto;
+  
   
 }
 
 .button-5:hover,
 .button-5:focus {
-  background-color: #00e64d;
-  box-shadow: rgba(6, 216, 27, 0.8) 0 4px 12px;
+  background-color: #2e89ff;
+  box-shadow: rgba(55, 146, 250, 0.8) 0 4px 12px;
 }
 
 .button-5:hover {
@@ -337,8 +460,8 @@
 }
 
 .button-5:active {
-  background-color: #70db70;
-  box-shadow: rgba(6, 216, 27, 0.8) 0 2px 4px;
+  background-color: #c85000;
+  box-shadow: rgba(55, 146, 250, 0.8) 0 2px 4px;
   transform: translateY(0);
   
 }
@@ -358,11 +481,11 @@
   font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 16px;
   font-weight: 600;
-  justify-content: center;
+   justify-content: space-between;
   line-height: 1.25;
   margin: 0;
   min-height: 3rem;
-  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  padding: 1px 80px;
   position: relative;
   text-decoration: none;
   transition: all 250ms;
@@ -370,7 +493,7 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: baseline;
-  width: auto;
+  margin-left: 80px;
   
 }
 
@@ -390,7 +513,6 @@
   transform: translateY(0);
   
 }
-
 
 .font-robo {
   font-family: "Roboto", "Arial", "Helvetica Neue", sans-serif;
@@ -986,7 +1108,6 @@ input {
     padding: 50px 40px;
   }
 }
-
 </style>
                     
                 </div>
