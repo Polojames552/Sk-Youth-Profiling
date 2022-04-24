@@ -336,7 +336,7 @@ class Youth_view extends Controller
                   $data = new YouthPrint();
                   
                   
-                   $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
+                  $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
                   
                   $data->Bday = $youth1->Bday;
                   $data->Age = $youth1->Age;

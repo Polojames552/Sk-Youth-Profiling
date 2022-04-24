@@ -21,7 +21,6 @@ class YouthExport implements FromCollection, WithHeadings, ShouldAutoSize, WithE
     {
         
         return YouthPrint::select(
-            'id',
             'FullName',
             // 'Bday',
             'Age',
@@ -34,14 +33,15 @@ class YouthExport implements FromCollection, WithHeadings, ShouldAutoSize, WithE
             'CivilStatus',
             'Scholarship',
             'Occupation',
-            'Sports1'
+            'Sports1',
+            'Sports2',
+            'Sports3'
             )->orderBy('FullName')->get();
             // substr('Mname', 0, 1) getting first string
     }
     public function headings(): array
     {
         return [
-            '#',
             'FullName',
             // 'Birthday',
             'Age',
@@ -54,7 +54,9 @@ class YouthExport implements FromCollection, WithHeadings, ShouldAutoSize, WithE
             'Civil Status',
             'Scholarship',
             'Occupation',
-            'Sports'
+            'Sports1',
+            'Sports2',
+            'Sports3'
         ];
     }
 
@@ -83,12 +85,11 @@ class YouthExport implements FromCollection, WithHeadings, ShouldAutoSize, WithE
                     ],
                 ];
                 $num1 = YouthPrint::query()->count()+1;  
-                $body1 = 'A1'.':M'.$num1; //RANGE OF CELL
+                $body1 = 'A1'.':N'.$num1; //RANGE OF CELL
                 $event->sheet->getStyle($body1)->applyFromArray($styleArray)->getBorders()->getAllBorders()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);;
                 //Border
                 // $event->sheet->getStyle($body1)
                 
-           
 
                 //ORIENTATION
                 $event->sheet
