@@ -35,7 +35,7 @@ class YouthExport implements FromCollection, WithHeadings, ShouldAutoSize, WithE
             'Scholarship',
             'Occupation',
             'Sports1'
-            )->get();
+            )->orderBy('FullName')->get();
             // substr('Mname', 0, 1) getting first string
     }
     public function headings(): array

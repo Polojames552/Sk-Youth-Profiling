@@ -50,7 +50,7 @@ class Youth_view extends Controller
         $FFemale = ($count/$Female)*100;
     }
 
-    $LGBTQ = DB::table('youths')->where('Sex', 'LGBTQ+')->count();
+    $LGBTQ = DB::table('youths')->where('Sex', 'LGBT')->count();
     if($LGBTQ == 0){
         $LGBTQ = 0;
     }else{
@@ -124,7 +124,7 @@ class Youth_view extends Controller
             $FFemale = ($count/$Female)*100;
         }
 
-        $LGBTQ = DB::table('youths')->where('Sex', 'LGBTQ+')->count();
+        $LGBTQ = DB::table('youths')->where('Sex', 'LGBT')->count();
         if($LGBTQ == 0){
             $LGBTQ = 0;
         }else{

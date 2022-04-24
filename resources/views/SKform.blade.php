@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>SK Form</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>   <!-- humburgerv link-->
+      
+      <!-- jquery document ready -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!-- Icons font CSS-->
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
@@ -30,6 +34,7 @@
                    <center><img src="image/SKcover.png" width="75%" height="70%" alt=""></center>
 
                    <center>  <h2 class="title">Registration Form</h2></center>
+
                   
                    <!-- <div class="error"> -->
                        <!-- Validation Errors -->
@@ -38,7 +43,14 @@
            </x-slot>
 
                 <x-auth-validation-errors class="mb-4" :errors="$errors" />
-          
+               
+                    @if(session()->has('message'))
+                    <center>
+                            <div class="alert alert-success" id="alertmessage">
+                                {{ session()->get('message') }}
+                            </div>
+                    </center>
+                    @endif
          </x-guest-layout>
          <style>
              #req{
@@ -74,8 +86,8 @@
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Name Extension</label>
-                                    <input class="input--style-4" type="text" name="Extension" autocomplete="off" placeholder="(Ex. Jr.)">
+                                    <label class="label">Suffix</label>
+                                    <input class="input--style-4" type="text" name="Extension" autocomplete="off" placeholder="(Ex. Jr)">
                                 </div>
                             </div>
                         </div>
@@ -97,7 +109,7 @@
                                         <option disabled="disabled" selected="selected"></option>
                                         <option>Male</option>
                                         <option>Female</option>
-                                        <option>LGBTQ+</option>
+                                        <option>LGBT</option>
                                     </select>
                                     <div class="select-dropdown"></div>
                                 </div>
@@ -252,10 +264,12 @@
 
 
                         <!-- HTML !-->
-                    
+                
 
 <style>
-   
+   #alertmessage{
+       background-color: rgba(118, 214, 72, 0.8);
+   }
 /* .error{
     background-color:#f23339;
 } */

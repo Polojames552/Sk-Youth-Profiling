@@ -24,7 +24,7 @@ class GenderTableSeeder extends Seeder
         $gen->save();
 
         $gen = new Gender();
-        $gen->gender_name = "LGBTQ+";
+        $gen->gender_name = "LGBT";
         $gen->save();
     }
 }

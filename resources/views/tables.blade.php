@@ -77,36 +77,34 @@
 
             </script> -->
             <script>
-        $(document).ready( function () {
-            $("#purok").change(function () {
-                    if($("#purok").val()!=""){
-                    $("#searchme").attr('disabled',false)
-                    }
-            });
-            $("#sex").change(function () {
-                    if($("#sex").val()!=""){
-                    $("#searchme").attr('disabled',false)
-                    }
-            });
-            $("#education").change(function () {
-                    if($("#education").val()!=""){
-                    $("#searchme").attr('disabled',false)
-                    }
-            });
-            $("#scholar").change(function () {
-                    if($("#scholar").val()!=""){
-                    $("#searchme").attr('disabled',false)
-                    }
-            });
-            $("#education").change(function () {
-                    if($("#education").val()!=""){
-                    $("#searchme").attr('disabled',false)
-                    }
-            });
+        // $(document).ready( function () {
+        //     $("#purok").change(function () {
+        //             if($("#purok").val()!=""){
+        //             $("#searchme").attr('disabled',false)
+        //             }
+        //     });
+        //     $("#sex").change(function () {
+        //             if($("#sex").val()!=""){
+        //             $("#searchme").attr('disabled',false)
+        //             }
+        //     });
+        //     $("#education").change(function () {
+        //             if($("#education").val()!=""){
+        //             $("#searchme").attr('disabled',false)
+        //             }
+        //     });
+        //     $("#scholar").change(function () {
+        //             if($("#scholar").val()!=""){
+        //             $("#searchme").attr('disabled',false)
+        //             }
+        //     });
+        //     $("#education").change(function () {
+        //             if($("#education").val()!=""){
+        //             $("#searchme").attr('disabled',false)
+        //             }
+        //     });
 
-        });
-
-
+        // });
             </script>
                     <div class="container-fluid px-4" >
                         <h1 class="mt-4">Tables</h1>
@@ -187,7 +185,7 @@
                         <div class="column02">
                         <div class="button_allign">
                             <label for=""> <center id="searchtext">.</center>
-                               <button class="button-24 input--style-5" id="searchme" role="button" disabled><i class="fas fa-search"></i></button>
+                               <button class="button-24 input--style-5" id="searchme" role="button"><i class="fas fa-search"></i></button>
                             </label>
                         </div>
                         </form>

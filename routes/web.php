@@ -53,7 +53,7 @@ Route::group(['middleware'=> 'auth'],function(){
     // Route::delete('/nieuws/{id}', [YouthData::class ,'destroy'])->name('nieuws.destroy');
     Route::delete('youth-delete/{id}', [YouthData::class ,'destroy']);
 
-    Route::post('announceEDIT',[YouthData::class ,'update_function1'])->name('update-user');
+    Route::post('announceEDIT',[YouthData::class ,'update_function1'])->name('announceEDIT');
     Route::post('update-user/{id}',[YouthData::class ,'update_function'])->name('update-user');
     Route::get('/charts',[Youth_view::class ,'tables']);
 

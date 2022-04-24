@@ -37,8 +37,8 @@
             <x-slot name="logo">
            </x-slot>
 
-                <x-auth-validation-errors class="mb-4" :errors="$errors" />
-          
+                <!-- <x-auth-validation-errors class="mb-4" :errors="$errors" /> -->
+             
          </x-guest-layout>
          <style>
              #req{
@@ -74,7 +74,7 @@
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                <label class="label">Name Extension</label>
+                                <label class="label">Suffix</label>
                                     <input class="input--style-4" type="text" name="Extension" value="{{$youth[0]->EXTname}}"placeholder="(Ex. Jr.)">
                                 </div>
                             </div>
@@ -97,15 +97,15 @@
                                     <select class="input--style-5" type="text" name="Sex" required>
                                         <option selected>{{$youth[0]->Sex}}</option>
                                         <option>Female</option>
-                                        <option>LGBTQ+</option>
+                                        <option>LGBT</option>
                                     </select>
                                 @elseif($youth[0]->Sex == 'Female')
                                     <select class="input--style-5" type="text" name="Sex" required>
                                         <option selected>{{$youth[0]->Sex}}</option>
                                         <option>Male</option>
-                                        <option>LGBTQ+</option>
+                                        <option>LGBT</option>
                                     </select>
-                                @elseif($youth[0]->Sex == 'LGBTQ+')
+                                @elseif($youth[0]->Sex == 'LGBT')
                                 <select class="input--style-5" type="text" name="Sex" required>
                                     <option selected>{{$youth[0]->Sex}}</option>
                                     <option>Male</option>

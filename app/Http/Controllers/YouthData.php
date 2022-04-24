@@ -73,7 +73,8 @@ class YouthData extends Controller
             //   [$FirstName, $MiddleName, $LastName, $Extension,
             //   $Birthday, 22, $Sex, $ParentName, $CPno,
             //   $EducStatus, $Purok, $PWD, $CivilStatus, $Scholarship, $id]);
-        return redirect(RouteServiceProvider::HOME1);
+             return redirect('SKform')->with('message','Registered successfully!');;
+            // return redirect('/')->with('alert','Registered Successfully');
         }
         else{
             throw ValidationException::withMessages([
@@ -165,7 +166,7 @@ class YouthData extends Controller
         'Sports2' => $Sports2,
         'Sports3' => $Sports3)); 
 
-        return redirect('dashboardmain')->with('message', 'Data has been Updated');
+        return redirect('dashboardmain')->with('message','Data updated successfully!');;
     }
     public function update_function1(Request $request){
 
