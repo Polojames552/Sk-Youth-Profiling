@@ -14,8 +14,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"><!-- slideshow -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><!-- slideshow responsive -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script><!-- slideshow responsive -->
-      
-        
+      <!-- FB icon -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
       <!-- Public CSS-->
         <!-- <link rel="stylesheet" href="style.css"> -->
@@ -195,7 +195,7 @@
   
       <footer>
       <img class="pic" src="image/sklogo.png">
-        <p ><a  class='fab fa-facebook-f' href="https://www.facebook.com/sangguniang.kabataan.984349">SK San Julian</a></p>
+        <p ><a  class='fa fa-facebook' href="https://www.facebook.com/sangguniang.kabataan.984349">SK San Julian</a></p>
         <p> Baranggay San Julian Irosin, Sorsogon</p>
         <p><a  class="fa fa-copyright"></a>Sangguniang Kabataan (2022).</p>
     <p>All Rights Reserved</p>
