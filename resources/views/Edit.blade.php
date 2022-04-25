@@ -27,7 +27,7 @@
             <div class="card card-4">
                 <div class="card-body">
                   
-                   <center><img src="image/SKcover.png" width="75%" height="70%" alt=""></center>
+                   <!-- <center><img src="image/SKcover.png" width="75%" height="70%" alt=""></center> -->
 
                    <center>  <h2 class="title">Edit Youth Data</h2></center>
                   
