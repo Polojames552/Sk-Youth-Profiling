@@ -134,7 +134,7 @@
                                 <option value="" selected="selected"></option>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
-                                <option value="LGBTQ+">LGBTQ+</option>
+                                <option value="LGBT">LGBT</option>
                             </select>
                         </label> </div>
 

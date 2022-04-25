@@ -272,7 +272,7 @@
 
       var options = {
         title: "Population",
-        width: 400,
+        width: 500,
         height: 400,
         bar: {groupWidth: "95%"},
         legend: { position: "none" },
@@ -293,7 +293,7 @@
           ['Gender', 'Youth Genders'],
           ['Male',     {{$FMale}}],
           ['Female',    {{$FFemale}}],
-          ['LGBTQ+',    {{$LGBTQ}}]
+          ['LGBT',    {{$LGBTQ}}]
         ]);
         var options = {
           title: 'Gender Statistics'

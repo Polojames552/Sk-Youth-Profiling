@@ -119,7 +119,7 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label"><b id="req">*</b>Parent Name</label>
+                                    <label class="label"><b id="req">*</b>Guardian Name</label>
                                     <input class="input--style-4" type="text" name="ParentName" autocomplete="off" required>
                                 </div>
                             </div>

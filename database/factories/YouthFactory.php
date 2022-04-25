@@ -21,7 +21,7 @@ class YouthFactory extends Factory
     public function definition()
     {
 
-        $sex = array("Male", "Female", "LGBTQ+");
+        $sex = array("Male", "Female", "LGBT");
         shuffle($sex);
         $sex = $sex[array_rand($sex)];
         

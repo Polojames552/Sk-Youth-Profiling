@@ -20,6 +20,10 @@ class EducationTableSeeder extends Seeder
         $educ->save();
 
         $educ = new Education();
+        $educ->EducStatus = "College Graduate";
+        $educ->save();
+
+        $educ = new Education();
         $educ->EducStatus = "College Level";
         $educ->save();
 

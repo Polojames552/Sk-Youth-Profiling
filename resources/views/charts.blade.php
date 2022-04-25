@@ -180,7 +180,7 @@
 
       var options = {
         title: "Population",
-        width: 400,
+        width: 500,
         height: 400,
         bar: {groupWidth: "95%"},
         legend: { position: "none" },
@@ -201,7 +201,7 @@
           ['Gender', 'Youth Genders'],
           ['Male',     {{$FMale}}],
           ['Female',    {{$FFemale}}],
-          ['LGBTQ+',    {{$LGBTQ}}]
+          ['LGBT',    {{$LGBTQ}}]
         ]);
         var options = {
           title: 'Gender Statistics'
@@ -221,6 +221,7 @@
       var data = google.visualization.arrayToDataTable([
         ["Element", "Density", { role: "style" } ],
         ["Master's Degree", {{$master}}, "#b32e82"],
+        ["College Graduate", {{$cg}}, "#b83fd4"],
         ["College Level", {{$cl}}, "#bfb4bb"],
         ["College Undergraduate", {{$cu}}, "#c1ced6"],
         ["Senior High School", {{$shs}}, "#4de8b2"],
@@ -240,7 +241,7 @@
 
       var options = {
         title: "Population",
-        width: 400,
+        width: 500,
         height: 300,
         bar: {groupWidth: "95%"},
         legend: { position: "none" },
