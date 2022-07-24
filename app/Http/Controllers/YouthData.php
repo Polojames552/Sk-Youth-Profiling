@@ -16,7 +16,7 @@ class YouthData extends Controller
 
     public function store(Request $request)
     {
-        
+
     $count = DB::table('youths')->where('Fname', $request->input('FirstName'))->where('parent', $request->input('ParentName'))->where('Lname', $request->input('LastName'))->count();
     if($count==0){
         $data = new youth();
@@ -27,7 +27,7 @@ class YouthData extends Controller
         }else{
             $data->Mname = $request->input('MiddleName');
         }
-        
+
         $data->Lname = $request->input('LastName');
 
         if($request->input('Extension')==""){
@@ -89,13 +89,13 @@ class YouthData extends Controller
       $purok = DB::table('puroks')->get();
 
       $youth = DB::select('select * from youths where id = ?', [$id]);
-      
+
       return view ('Edit',['youth'=>$youth,'educ'=>$educ,'purok'=>$purok]);
     }
 
     public function update_function(Request $request, $id)
     {
-     
+
         $Fname = $request->input('FirstName');
         // $Mname = $request->input('MiddleName');
         if($request->input('MiddleName')==""){
@@ -104,7 +104,7 @@ class YouthData extends Controller
             $Mname = $request->input('MiddleName');
         }
         $Lname = $request->input('LastName');
-       
+
         if($request->input('Extension')==""){
             $EXTname = " ";
         }else{
@@ -164,7 +164,7 @@ class YouthData extends Controller
         'Occupation' => $Occupation,
         'Sports1' => $Sports1,
         'Sports2' => $Sports2,
-        'Sports3' => $Sports3)); 
+        'Sports3' => $Sports3));
 
         return redirect('dashboardmain')->with('message','Data updated successfully!');;
     }
@@ -181,7 +181,7 @@ class YouthData extends Controller
     $youth = Youth::findOrFail($id);
 
     $youth->delete();
-   
+
     return redirect('dashboardmain')->with('message', 'The data is successfully deleted!');
     }
 }

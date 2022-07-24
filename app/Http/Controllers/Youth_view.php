@@ -17,7 +17,7 @@ class Youth_view extends Controller
 
     function show_welcome(){
         $announcement = DB::table('users')->get('announcement');
-     
+
         return view('welcome',['announcement'=>$announcement]);
     }
 
@@ -25,7 +25,7 @@ class Youth_view extends Controller
     function show(){
         $youth = DB::table('youths')->get();
         $count = DB::table('youths')->count();
-        
+
     // Population per purok
     $purok1 = DB::table('youths')->where('Purok', '1')->count();
     $purok2 = DB::table('youths')->where('Purok', '2')->count();
@@ -67,7 +67,7 @@ class Youth_view extends Controller
         $purok = DB::table('puroks')->get();
         $p1 = "";
         $youth = DB::table('youths')->get();
-     
+
         $num1 = YouthPrint::query()->count();
         if($num1!=0){
             YouthPrint::truncate();
@@ -77,7 +77,7 @@ class Youth_view extends Controller
      function data2(){
         $educ = DB::table('education')->get();
         $purok = DB::table('puroks')->get();
-        
+
         return view('SKform',['educ'=>$educ,'purok'=>$purok]);
     }
 
@@ -85,7 +85,7 @@ class Youth_view extends Controller
         $count = DB::table('youths')->count();
 
         // PIE AGE RATIO
-    
+
         $N15To18 = DB::table('youths')->where('Age', '15')->Orwhere('Age', '16')->Orwhere('Age', '17')->Orwhere('Age', '18')->count();
         if($N15To18 == 0){
             $F15to18 = 0;
@@ -142,7 +142,7 @@ class Youth_view extends Controller
         $hsu = DB::table('youths')->where('EducStatus', "High School Undergraduate")->count();
         $el = DB::table('youths')->where('EducStatus', "Elementary Level")->count();
         $eu = DB::table('youths')->where('EducStatus', "Elementary Undergraduate")->count();
-      
+
 
         return view('charts',['announcement' => $announcement,'count'=> $count , 'F15to18'=>$F15to18,'F19Above'=>$F19Above,'purok1'=>$purok1,
         'purok2'=>$purok2,'purok3'=>$purok3,'purok4A'=>$purok4A,'purok4B'=>$purok4B,'purok5'=>$purok5,'purok6'=>$purok6,'FMale'=>$FMale,
@@ -156,17 +156,17 @@ class Youth_view extends Controller
         $education = $request->input('education');
         $scholar = $request->input('scholars');
         $age = $request->input('age');
-        
+
 
         if($purok == "" && $sex == "" && $education == ""  && $scholar == "" && $age == ""){
             $youth = DB::table('youths')->get();
             $educ = DB::table('education')->get();
             $purok = DB::table('puroks')->get();
             $p1 = "";
-          
-            $num1 = YouthPrint::query()->count(); 
+
+            $num1 = YouthPrint::query()->count();
                   if($num1!=0){
-                    YouthPrint::truncate();  
+                    YouthPrint::truncate();
                   }
 
                   foreach($youth as $youth1){
@@ -190,31 +190,31 @@ class Youth_view extends Controller
                     $data->Sports1 = $youth1->Sports1;
                     $data->Sports2 = $youth1->Sports2;
                     $data->Sports3 = $youth1->Sports3;
-                    
+
                       $data->save();
                   }
-            
+
            return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
         }
         else{
             // 10000
             if($purok != "" && $sex == "" && $education == ""  && $scholar == "" && $age == ""){
-                $youth = DB::table('youths')->where('Purok', $purok)->get();  
+                $youth = DB::table('youths')->where('Purok', $purok)->get();
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
-                
-                $num1 = YouthPrint::query()->count(); 
+
+                $num1 = YouthPrint::query()->count();
                   if($num1!=0){
-                    YouthPrint::truncate();  
+                    YouthPrint::truncate();
                   }
 
                   foreach($youth as $youth1){
                     $data = new YouthPrint();
-                    
-                    
+
+
                      $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
-                    
+
                     $data->Bday = $youth1->Bday;
                     $data->Age = $youth1->Age;
                     $data->Sex = $youth1->Sex;
@@ -229,35 +229,35 @@ class Youth_view extends Controller
                     $data->Sports1 = $youth1->Sports1;
                     $data->Sports2 = $youth1->Sports2;
                     $data->Sports3 = $youth1->Sports3;
-                    
+
                       $data->save();
                   }
 
-               
-                  
+
+
                return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
-                
+
             }
              // 11000
             if($purok != "" && $sex != "" && $education == ""  && $scholar == "" && $age == ""){
                 $youth = DB::table('youths')->where('Purok', $purok)
                 ->where('Sex', $sex)
-                ->get(); 
+                ->get();
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = YouthPrint::query()->count();
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  YouthPrint::truncate();
                 }
 
                 foreach($youth as $youth1){
                   $data = new YouthPrint();
-                  
-                  
+
+
                    $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
-                  
+
                   $data->Bday = $youth1->Bday;
                   $data->Age = $youth1->Age;
                   $data->Sex = $youth1->Sex;
@@ -272,7 +272,7 @@ class Youth_view extends Controller
                   $data->Sports1 = $youth1->Sports1;
                   $data->Sports2 = $youth1->Sports2;
                   $data->Sports3 = $youth1->Sports3;
-                  
+
                     $data->save();
                 }
                return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
@@ -282,22 +282,22 @@ class Youth_view extends Controller
                 $youth = DB::table('youths')->where('Purok', $purok)
                 ->where('Sex', $sex)
                 ->where('EducStatus', $education)
-                ->get(); 
+                ->get();
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = YouthPrint::query()->count();
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  YouthPrint::truncate();
                 }
 
                 foreach($youth as $youth1){
                   $data = new YouthPrint();
-                  
-                  
-                   $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
-                  
+
+
+                  $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
+
                   $data->Bday = $youth1->Bday;
                   $data->Age = $youth1->Age;
                   $data->Sex = $youth1->Sex;
@@ -312,7 +312,7 @@ class Youth_view extends Controller
                   $data->Sports1 = $youth1->Sports1;
                   $data->Sports2 = $youth1->Sports2;
                   $data->Sports3 = $youth1->Sports3;
-                  
+
                     $data->save();
                 }
                return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
@@ -323,22 +323,22 @@ class Youth_view extends Controller
                 ->where('Sex', $sex)
                 ->where('EducStatus', $education)
                 ->where('Scholarship', $scholar)
-                ->get(); 
+                ->get();
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = YouthPrint::query()->count();
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  YouthPrint::truncate();
                 }
 
                 foreach($youth as $youth1){
                   $data = new YouthPrint();
-                  
-                  
+
+
                   $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
-                  
+
                   $data->Bday = $youth1->Bday;
                   $data->Age = $youth1->Age;
                   $data->Sex = $youth1->Sex;
@@ -353,7 +353,7 @@ class Youth_view extends Controller
                   $data->Sports1 = $youth1->Sports1;
                   $data->Sports2 = $youth1->Sports2;
                   $data->Sports3 = $youth1->Sports3;
-                  
+
                     $data->save();
                 }
                return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
@@ -365,22 +365,22 @@ class Youth_view extends Controller
                 ->where('EducStatus', $education)
                 ->where('Scholarship', $scholar)
                 ->where('Age', $age)
-                ->get(); 
+                ->get();
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = YouthPrint::query()->count();
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  YouthPrint::truncate();
                 }
 
                 foreach($youth as $youth1){
                   $data = new YouthPrint();
-                  
-                  
+
+
                    $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
-                  
+
                   $data->Bday = $youth1->Bday;
                   $data->Age = $youth1->Age;
                   $data->Sex = $youth1->Sex;
@@ -395,7 +395,7 @@ class Youth_view extends Controller
                   $data->Sports1 = $youth1->Sports1;
                   $data->Sports2 = $youth1->Sports2;
                   $data->Sports3 = $youth1->Sports3;
-                  
+
                     $data->save();
                 }
                return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
@@ -405,22 +405,22 @@ class Youth_view extends Controller
                 $youth = DB::table('youths')->where('Purok', $purok)
                 ->where('Sex', $sex)
                 ->where('Scholarship', $scholar)
-                ->get(); 
+                ->get();
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = YouthPrint::query()->count();
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  YouthPrint::truncate();
                 }
 
                 foreach($youth as $youth1){
                   $data = new YouthPrint();
-                  
-                  
+
+
                    $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
-                  
+
                   $data->Bday = $youth1->Bday;
                   $data->Age = $youth1->Age;
                   $data->Sex = $youth1->Sex;
@@ -435,7 +435,7 @@ class Youth_view extends Controller
                   $data->Sports1 = $youth1->Sports1;
                   $data->Sports2 = $youth1->Sports2;
                   $data->Sports3 = $youth1->Sports3;
-                  
+
                     $data->save();
                 }
                return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
@@ -446,22 +446,22 @@ class Youth_view extends Controller
                 ->where('Sex', $sex)
                 ->where('Scholarship', $scholar)
                 ->where('Age', $age)
-                ->get(); 
+                ->get();
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = YouthPrint::query()->count();
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  YouthPrint::truncate();
                 }
 
                 foreach($youth as $youth1){
                   $data = new YouthPrint();
-                  
-                  
+
+
                    $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
-                  
+
                   $data->Bday = $youth1->Bday;
                   $data->Age = $youth1->Age;
                   $data->Sex = $youth1->Sex;
@@ -476,7 +476,7 @@ class Youth_view extends Controller
                   $data->Sports1 = $youth1->Sports1;
                   $data->Sports2 = $youth1->Sports2;
                   $data->Sports3 = $youth1->Sports3;
-                  
+
                     $data->save();
                 }
                return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
@@ -486,22 +486,22 @@ class Youth_view extends Controller
                 $youth = DB::table('youths')->where('Purok', $purok)
                 ->where('Sex', $sex)
                 ->where('Age', $age)
-                ->get(); 
+                ->get();
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = YouthPrint::query()->count();
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  YouthPrint::truncate();
                 }
 
                 foreach($youth as $youth1){
                   $data = new YouthPrint();
-                  
-                  
+
+
                    $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
-                  
+
                   $data->Bday = $youth1->Bday;
                   $data->Age = $youth1->Age;
                   $data->Sex = $youth1->Sex;
@@ -516,7 +516,7 @@ class Youth_view extends Controller
                   $data->Sports1 = $youth1->Sports1;
                   $data->Sports2 = $youth1->Sports2;
                   $data->Sports3 = $youth1->Sports3;
-                  
+
                     $data->save();
                 }
                return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
@@ -525,22 +525,22 @@ class Youth_view extends Controller
             if($purok != "" && $sex == "" && $education != ""  && $scholar == "" && $age == ""){
                 $youth = DB::table('youths')->where('Purok', $purok)
                 ->where('EducStatus', $education)
-                ->get(); 
+                ->get();
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = YouthPrint::query()->count();
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  YouthPrint::truncate();
                 }
 
                 foreach($youth as $youth1){
                   $data = new YouthPrint();
-                  
-                  
+
+
                    $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
-                  
+
                   $data->Bday = $youth1->Bday;
                   $data->Age = $youth1->Age;
                   $data->Sex = $youth1->Sex;
@@ -555,7 +555,7 @@ class Youth_view extends Controller
                   $data->Sports1 = $youth1->Sports1;
                   $data->Sports2 = $youth1->Sports2;
                   $data->Sports3 = $youth1->Sports3;
-                  
+
                     $data->save();
                 }
                return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
@@ -565,22 +565,22 @@ class Youth_view extends Controller
                 $youth = DB::table('youths')->where('Purok', $purok)
                 ->where('EducStatus', $education)
                 ->where('Age', $age)
-                ->get(); 
+                ->get();
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = YouthPrint::query()->count();
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  YouthPrint::truncate();
                 }
 
                 foreach($youth as $youth1){
                   $data = new YouthPrint();
-                  
-                  
+
+
                    $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
-                  
+
                   $data->Bday = $youth1->Bday;
                   $data->Age = $youth1->Age;
                   $data->Sex = $youth1->Sex;
@@ -595,7 +595,7 @@ class Youth_view extends Controller
                   $data->Sports1 = $youth1->Sports1;
                   $data->Sports2 = $youth1->Sports2;
                   $data->Sports3 = $youth1->Sports3;
-                  
+
                     $data->save();
                 }
                return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
@@ -605,22 +605,22 @@ class Youth_view extends Controller
                 $youth = DB::table('youths')->where('Purok', $purok)
                 ->where('EducStatus', $education)
                 ->where('Scholarship', $scholar)
-                ->get(); 
+                ->get();
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = YouthPrint::query()->count();
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  YouthPrint::truncate();
                 }
 
                 foreach($youth as $youth1){
                   $data = new YouthPrint();
-                  
-                  
+
+
                    $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
-                  
+
                   $data->Bday = $youth1->Bday;
                   $data->Age = $youth1->Age;
                   $data->Sex = $youth1->Sex;
@@ -635,7 +635,7 @@ class Youth_view extends Controller
                   $data->Sports1 = $youth1->Sports1;
                   $data->Sports2 = $youth1->Sports2;
                   $data->Sports3 = $youth1->Sports3;
-                  
+
                     $data->save();
                 }
                return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
@@ -646,22 +646,22 @@ class Youth_view extends Controller
                 ->where('EducStatus', $education)
                 ->where('Scholarship', $scholar)
                 ->where('Age', $age)
-                ->get(); 
+                ->get();
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = YouthPrint::query()->count();
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  YouthPrint::truncate();
                 }
 
                 foreach($youth as $youth1){
                   $data = new YouthPrint();
-                  
-                  
+
+
                    $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
-                  
+
                   $data->Bday = $youth1->Bday;
                   $data->Age = $youth1->Age;
                   $data->Sex = $youth1->Sex;
@@ -676,7 +676,7 @@ class Youth_view extends Controller
                   $data->Sports1 = $youth1->Sports1;
                   $data->Sports2 = $youth1->Sports2;
                   $data->Sports3 = $youth1->Sports3;
-                  
+
                     $data->save();
                 }
                return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
@@ -685,22 +685,22 @@ class Youth_view extends Controller
             if($purok != "" && $sex == "" && $education == ""  && $scholar != "" && $age == ""){
                 $youth = DB::table('youths')->where('Purok', $purok)
                 ->where('Scholarship', $scholar)
-                ->get(); 
+                ->get();
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = YouthPrint::query()->count();
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  YouthPrint::truncate();
                 }
 
                 foreach($youth as $youth1){
                   $data = new YouthPrint();
-                  
-                  
+
+
                    $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
-                  
+
                   $data->Bday = $youth1->Bday;
                   $data->Age = $youth1->Age;
                   $data->Sex = $youth1->Sex;
@@ -715,7 +715,7 @@ class Youth_view extends Controller
                   $data->Sports1 = $youth1->Sports1;
                   $data->Sports2 = $youth1->Sports2;
                   $data->Sports3 = $youth1->Sports3;
-                  
+
                     $data->save();
                 }
                return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
@@ -725,22 +725,22 @@ class Youth_view extends Controller
                 $youth = DB::table('youths')->where('Purok', $purok)
                 ->where('Scholarship', $scholar)
                 ->where('Age', $age)
-                ->get(); 
+                ->get();
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = YouthPrint::query()->count();
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  YouthPrint::truncate();
                 }
 
                 foreach($youth as $youth1){
                   $data = new YouthPrint();
-                  
-                  
+
+
                    $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
-                  
+
                   $data->Bday = $youth1->Bday;
                   $data->Age = $youth1->Age;
                   $data->Sex = $youth1->Sex;
@@ -755,7 +755,7 @@ class Youth_view extends Controller
                   $data->Sports1 = $youth1->Sports1;
                   $data->Sports2 = $youth1->Sports2;
                   $data->Sports3 = $youth1->Sports3;
-                  
+
                     $data->save();
                 }
                return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
@@ -764,22 +764,22 @@ class Youth_view extends Controller
             if($purok != "" && $sex == "" && $education == ""  && $scholar == "" && $age != ""){
                 $youth = DB::table('youths')->where('Purok', $purok)
                 ->where('Age', $age)
-                ->get(); 
+                ->get();
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = YouthPrint::query()->count();
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  YouthPrint::truncate();
                 }
 
                 foreach($youth as $youth1){
                   $data = new YouthPrint();
-                  
-                  
+
+
                    $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
-                  
+
                   $data->Bday = $youth1->Bday;
                   $data->Age = $youth1->Age;
                   $data->Sex = $youth1->Sex;
@@ -794,7 +794,7 @@ class Youth_view extends Controller
                   $data->Sports1 = $youth1->Sports1;
                   $data->Sports2 = $youth1->Sports2;
                   $data->Sports3 = $youth1->Sports3;
-                  
+
                     $data->save();
                 }
                return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
@@ -802,22 +802,22 @@ class Youth_view extends Controller
              // 01000
              if($purok == "" && $sex != "" && $education == ""  && $scholar == "" && $age == ""){
                 $youth = DB::table('youths')->where('Sex', $sex)
-                ->get(); 
+                ->get();
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = YouthPrint::query()->count();
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  YouthPrint::truncate();
                 }
 
                 foreach($youth as $youth1){
                   $data = new YouthPrint();
-                  
-                  
+
+
                    $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
-                  
+
                   $data->Bday = $youth1->Bday;
                   $data->Age = $youth1->Age;
                   $data->Sex = $youth1->Sex;
@@ -832,7 +832,7 @@ class Youth_view extends Controller
                   $data->Sports1 = $youth1->Sports1;
                   $data->Sports2 = $youth1->Sports2;
                   $data->Sports3 = $youth1->Sports3;
-                  
+
                     $data->save();
                 }
                return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
@@ -841,22 +841,22 @@ class Youth_view extends Controller
             if($purok == "" && $sex != "" && $education != ""  && $scholar == "" && $age == ""){
                 $youth = DB::table('youths')->where('Sex', $sex)
                 ->where('EducStatus', $education)
-                ->get(); 
+                ->get();
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = YouthPrint::query()->count();
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  YouthPrint::truncate();
                 }
 
                 foreach($youth as $youth1){
                   $data = new YouthPrint();
-                  
-                  
+
+
                    $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
-                  
+
                   $data->Bday = $youth1->Bday;
                   $data->Age = $youth1->Age;
                   $data->Sex = $youth1->Sex;
@@ -871,7 +871,7 @@ class Youth_view extends Controller
                   $data->Sports1 = $youth1->Sports1;
                   $data->Sports2 = $youth1->Sports2;
                   $data->Sports3 = $youth1->Sports3;
-                  
+
                     $data->save();
                 }
                return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
@@ -881,22 +881,22 @@ class Youth_view extends Controller
                 $youth = DB::table('youths')->where('Sex', $sex)
                 ->where('EducStatus', $education)
                 ->where('Scholarship', $scholar)
-                ->get(); 
+                ->get();
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = YouthPrint::query()->count();
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  YouthPrint::truncate();
                 }
 
                 foreach($youth as $youth1){
                   $data = new YouthPrint();
-                  
-                  
+
+
                    $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
-                  
+
                   $data->Bday = $youth1->Bday;
                   $data->Age = $youth1->Age;
                   $data->Sex = $youth1->Sex;
@@ -911,7 +911,7 @@ class Youth_view extends Controller
                   $data->Sports1 = $youth1->Sports1;
                   $data->Sports2 = $youth1->Sports2;
                   $data->Sports3 = $youth1->Sports3;
-                  
+
                     $data->save();
                 }
                return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
@@ -922,22 +922,22 @@ class Youth_view extends Controller
                 ->where('EducStatus', $education)
                 ->where('Scholarship', $scholar)
                 ->where('Age', $age)
-                ->get(); 
+                ->get();
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = YouthPrint::query()->count();
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  YouthPrint::truncate();
                 }
 
                 foreach($youth as $youth1){
                   $data = new YouthPrint();
-                  
-                  
+
+
                    $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
-                  
+
                   $data->Bday = $youth1->Bday;
                   $data->Age = $youth1->Age;
                   $data->Sex = $youth1->Sex;
@@ -952,7 +952,7 @@ class Youth_view extends Controller
                   $data->Sports1 = $youth1->Sports1;
                   $data->Sports2 = $youth1->Sports2;
                   $data->Sports3 = $youth1->Sports3;
-                  
+
                     $data->save();
                 }
                return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
@@ -961,22 +961,22 @@ class Youth_view extends Controller
             if($purok == "" && $sex != "" && $education == ""  && $scholar != "" && $age == ""){
                 $youth = DB::table('youths')->where('Sex', $sex)
                 ->where('Scholarship', $scholar)
-                ->get(); 
+                ->get();
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = YouthPrint::query()->count();
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  YouthPrint::truncate();
                 }
 
                 foreach($youth as $youth1){
                   $data = new YouthPrint();
-                  
-                  
+
+
                    $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
-                  
+
                   $data->Bday = $youth1->Bday;
                   $data->Age = $youth1->Age;
                   $data->Sex = $youth1->Sex;
@@ -991,7 +991,7 @@ class Youth_view extends Controller
                   $data->Sports1 = $youth1->Sports1;
                   $data->Sports2 = $youth1->Sports2;
                   $data->Sports3 = $youth1->Sports3;
-                  
+
                     $data->save();
                 }
                return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
@@ -1001,22 +1001,22 @@ class Youth_view extends Controller
                 $youth = DB::table('youths')->where('Sex', $sex)
                 ->where('Scholarship', $scholar)
                 ->where('Age', $age)
-                ->get(); 
+                ->get();
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = YouthPrint::query()->count();
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  YouthPrint::truncate();
                 }
 
                 foreach($youth as $youth1){
                   $data = new YouthPrint();
-                  
-                  
+
+
                    $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
-                  
+
                   $data->Bday = $youth1->Bday;
                   $data->Age = $youth1->Age;
                   $data->Sex = $youth1->Sex;
@@ -1031,7 +1031,7 @@ class Youth_view extends Controller
                   $data->Sports1 = $youth1->Sports1;
                   $data->Sports2 = $youth1->Sports2;
                   $data->Sports3 = $youth1->Sports3;
-                  
+
                     $data->save();
                 }
                return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
@@ -1040,22 +1040,22 @@ class Youth_view extends Controller
             if($purok == "" && $sex != "" && $education == ""  && $scholar == "" && $age != ""){
                 $youth = DB::table('youths')->where('Sex', $sex)
                 ->where('Age', $age)
-                ->get(); 
+                ->get();
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = YouthPrint::query()->count();
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  YouthPrint::truncate();
                 }
 
                 foreach($youth as $youth1){
                   $data = new YouthPrint();
-                  
-                  
+
+
                    $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
-                  
+
                   $data->Bday = $youth1->Bday;
                   $data->Age = $youth1->Age;
                   $data->Sex = $youth1->Sex;
@@ -1070,7 +1070,7 @@ class Youth_view extends Controller
                   $data->Sports1 = $youth1->Sports1;
                   $data->Sports2 = $youth1->Sports2;
                   $data->Sports3 = $youth1->Sports3;
-                  
+
                     $data->save();
                 }
                return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
@@ -1078,22 +1078,22 @@ class Youth_view extends Controller
             // 00100
             if($purok == "" && $sex == "" && $education != ""  && $scholar == "" && $age == ""){
                 $youth = DB::table('youths')->where('EducStatus', $education)
-                ->get(); 
+                ->get();
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = YouthPrint::query()->count();
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  YouthPrint::truncate();
                 }
 
                 foreach($youth as $youth1){
                   $data = new YouthPrint();
-                  
-                  
+
+
                    $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
-                  
+
                   $data->Bday = $youth1->Bday;
                   $data->Age = $youth1->Age;
                   $data->Sex = $youth1->Sex;
@@ -1108,7 +1108,7 @@ class Youth_view extends Controller
                   $data->Sports1 = $youth1->Sports1;
                   $data->Sports2 = $youth1->Sports2;
                   $data->Sports3 = $youth1->Sports3;
-                  
+
                     $data->save();
                 }
                return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
@@ -1117,22 +1117,22 @@ class Youth_view extends Controller
             if($purok == "" && $sex == "" && $education != ""  && $scholar != "" && $age == ""){
                 $youth = DB::table('youths')->where('EducStatus', $education)
                 ->where('Scholarship', $scholar)
-                ->get(); 
+                ->get();
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = YouthPrint::query()->count();
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  YouthPrint::truncate();
                 }
 
                 foreach($youth as $youth1){
                   $data = new YouthPrint();
-                  
-                  
+
+
                    $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
-                  
+
                   $data->Bday = $youth1->Bday;
                   $data->Age = $youth1->Age;
                   $data->Sex = $youth1->Sex;
@@ -1147,7 +1147,7 @@ class Youth_view extends Controller
                   $data->Sports1 = $youth1->Sports1;
                   $data->Sports2 = $youth1->Sports2;
                   $data->Sports3 = $youth1->Sports3;
-                  
+
                     $data->save();
                 }
                return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
@@ -1157,22 +1157,22 @@ class Youth_view extends Controller
                 $youth = DB::table('youths')->where('EducStatus', $education)
                 ->where('Scholarship', $scholar)
                 ->where('Age', $age)
-                ->get(); 
+                ->get();
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = YouthPrint::query()->count();
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  YouthPrint::truncate();
                 }
 
                 foreach($youth as $youth1){
                   $data = new YouthPrint();
-                  
-                  
+
+
                    $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
-                  
+
                   $data->Bday = $youth1->Bday;
                   $data->Age = $youth1->Age;
                   $data->Sex = $youth1->Sex;
@@ -1187,7 +1187,7 @@ class Youth_view extends Controller
                   $data->Sports1 = $youth1->Sports1;
                   $data->Sports2 = $youth1->Sports2;
                   $data->Sports3 = $youth1->Sports3;
-                  
+
                     $data->save();
                 }
                return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
@@ -1196,22 +1196,22 @@ class Youth_view extends Controller
             if($purok == "" && $sex == "" && $education != ""  && $scholar == "" && $age != ""){
                 $youth = DB::table('youths')->where('EducStatus', $education)
                 ->where('Age', $age)
-                ->get(); 
+                ->get();
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = YouthPrint::query()->count();
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  YouthPrint::truncate();
                 }
 
                 foreach($youth as $youth1){
                   $data = new YouthPrint();
-                  
-                  
+
+
                    $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
-                  
+
                   $data->Bday = $youth1->Bday;
                   $data->Age = $youth1->Age;
                   $data->Sex = $youth1->Sex;
@@ -1226,7 +1226,7 @@ class Youth_view extends Controller
                   $data->Sports1 = $youth1->Sports1;
                   $data->Sports2 = $youth1->Sports2;
                   $data->Sports3 = $youth1->Sports3;
-                  
+
                     $data->save();
                 }
                return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
@@ -1234,22 +1234,22 @@ class Youth_view extends Controller
             // 00010
             if($purok == "" && $sex == "" && $education == ""  && $scholar != "" && $age == ""){
                 $youth = DB::table('youths')->where('Scholarship', $scholar)
-                ->get(); 
+                ->get();
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = YouthPrint::query()->count();
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  YouthPrint::truncate();
                 }
 
                 foreach($youth as $youth1){
                   $data = new YouthPrint();
-                  
-                  
+
+
                    $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
-                  
+
                   $data->Bday = $youth1->Bday;
                   $data->Age = $youth1->Age;
                   $data->Sex = $youth1->Sex;
@@ -1264,7 +1264,7 @@ class Youth_view extends Controller
                   $data->Sports1 = $youth1->Sports1;
                   $data->Sports2 = $youth1->Sports2;
                   $data->Sports3 = $youth1->Sports3;
-                  
+
                     $data->save();
                 }
                return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
@@ -1273,22 +1273,22 @@ class Youth_view extends Controller
             if($purok == "" && $sex == "" && $education == ""  && $scholar != "" && $age != ""){
                 $youth = DB::table('youths')->where('Scholarship', $scholar)
                 ->where('Age', $age)
-                ->get(); 
+                ->get();
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = YouthPrint::query()->count();
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  YouthPrint::truncate();
                 }
 
                 foreach($youth as $youth1){
                   $data = new YouthPrint();
-                  
-                  
+
+
                    $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
-                  
+
                   $data->Bday = $youth1->Bday;
                   $data->Age = $youth1->Age;
                   $data->Sex = $youth1->Sex;
@@ -1303,7 +1303,7 @@ class Youth_view extends Controller
                   $data->Sports1 = $youth1->Sports1;
                   $data->Sports2 = $youth1->Sports2;
                   $data->Sports3 = $youth1->Sports3;
-                  
+
                     $data->save();
                 }
                return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
@@ -1311,22 +1311,22 @@ class Youth_view extends Controller
             // 00001
             if($purok == "" && $sex == "" && $education == ""  && $scholar == "" && $age != ""){
                 $youth = DB::table('youths')->where('Age', $age)
-                ->get(); 
+                ->get();
                 $educ = DB::table('education')->get();
                 $purok = DB::table('puroks')->get();
                 $p1 = "";
 
-                $num1 = YouthPrint::query()->count(); 
+                $num1 = YouthPrint::query()->count();
                 if($num1!=0){
-                  YouthPrint::truncate();  
+                  YouthPrint::truncate();
                 }
 
                 foreach($youth as $youth1){
                   $data = new YouthPrint();
-                  
-                  
+
+
                    $data->FullName = $youth1->Lname.", ". $youth1->Fname . " " .substr($youth1->Mname, 0, 1 ).". ".$youth1->EXTname;
-                  
+
                   $data->Bday = $youth1->Bday;
                   $data->Age = $youth1->Age;
                   $data->Sex = $youth1->Sex;
@@ -1341,12 +1341,12 @@ class Youth_view extends Controller
                   $data->Sports1 = $youth1->Sports1;
                   $data->Sports2 = $youth1->Sports2;
                   $data->Sports3 = $youth1->Sports3;
-                  
+
                     $data->save();
                 }
                return view('tables',['num1'=>$num1,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1]);
             }
-           
+
         }
 
     }
@@ -1361,12 +1361,12 @@ class Youth_view extends Controller
                 ->Orwhere('Sports1', 'LIKE', "%{$search}%")
                 ->Orwhere('Sports2', 'LIKE', "%{$search}%")
                 ->Orwhere('Sports3', 'LIKE', "%{$search}%")
-                ->get(); 
+                ->get();
 
       return view('PrintYouth',['youth'=>$youth]);
 
     }
 
-   
+
 
 }

@@ -57,8 +57,8 @@
               </a>
               <div class="navbar-links">
                 <ul>
-               
-             
+
+
                 @if (Route::has('login'))
                     @auth
                     <li> <a class="add" href="{{ route('login') }}"><i class="fa fa-fw fa-user"></i>Go to Dashboard</a></li>
@@ -67,7 +67,7 @@
                     @endauth
                 @endif
 
-   
+
                 </ul>
               </div>
             </nav>
@@ -92,7 +92,7 @@
 
     <!-- HTML !-->
     <!-- <form action="{{ route('SKform') }}" method="get">
-    
+
          <button class="button-33" role="button"><i class="fa fa-file-text"></i> Fill Up Form</button>
     </form> -->
 
@@ -100,7 +100,7 @@
   <br>
     <form action="{{ route('SKform') }}" method="get">
         <button class="button-71" role="button"><i class="fa fa-file-text"></i> Fill Up Form</button>
-    </form> 
+    </form>
 
 
 
@@ -171,36 +171,36 @@
 <div class="row">
         <div class="card-02"  id="vission">
         <h2 class="www"><b>Vision</b></h2>
- 
- <p>We envisioned Barangay San Julian 
-    as a Developed & Progressive Barangay  with people </p> 
+
+ <p>We envisioned Barangay San Julian
+    as a Developed & Progressive Barangay  with people </p>
   <center><b>"WHO ARE UNITED & GOD LOVING"</b></center>
 
         </div>
 
-        
+
         <div class="card-02" id="mission">
-        
+
         <h2 class="www"><b>Mission</b></h2>
-    <p> Barangay  <b>SAN JULIAN</b> is committed to promote the General 
+    <p> Barangay  <b>SAN JULIAN</b> is committed to promote the General
        welfare of the people and to enhance the socio-economic condition of the people
-       through delivery of basic services and to 
+       through delivery of basic services and to
        encourage people's participation towards a progressive community.</p>
-     
+
       </div>
       </div>
 <br>
 <br>
 
-  
+
       <footer>
       <img class="pic" src="image/sklogo.png">
         <p ><a  class='fa fa-facebook' href="https://www.facebook.com/sangguniang.kabataan.984349">SK San Julian</a></p>
         <p> Baranggay San Julian Irosin, Sorsogon</p>
         <p><a  class="fa fa-copyright"></a>Sangguniang Kabataan (2022).</p>
     <p>All Rights Reserved</p>
-      </footer> 
-      
+      </footer>
+
 <style>
 
   #vission{
@@ -258,7 +258,7 @@
   text-align: center;
   cursor: pointer;
   width: 100%;
- 
+
 }
 
 .button:hover {
@@ -288,7 +288,7 @@
   height: 160px;
   margin: 10px;
   border-radius: 5px;
-  
+
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -330,8 +330,8 @@
   .vis{
     height: 135px;
   }
- 
- 
+
+
   #horn1{
     color: #ff3333;
   }
@@ -426,7 +426,7 @@
         align-items: flex-start;
 
     }
- 
+
   .missiontxt{
     font-size: 8px;
     height: 5px;
@@ -495,7 +495,7 @@
     text-align: center;
     color: white;
     font-size: 10px;
-} 
+}
 
 }
 /* .card {
@@ -516,7 +516,7 @@
     text-align: center;
     color: white;
     font-size: 10px;
-} 
+}
 
 
 
@@ -573,7 +573,7 @@
   float: left;
   width: 50%;
   padding: 10px;
-  
+
 }
 
 .row:after {

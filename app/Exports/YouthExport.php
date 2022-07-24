@@ -16,10 +16,10 @@ class YouthExport implements FromCollection, WithHeadings, ShouldAutoSize, WithE
     /**
     * @return \Illuminate\Support\Collection
     */
-    
+
     public function collection()
     {
-        
+
         return YouthPrint::select(
             'FullName',
             // 'Bday',
@@ -63,18 +63,18 @@ class YouthExport implements FromCollection, WithHeadings, ShouldAutoSize, WithE
     public function registerEvents(): array
     {
         return [
-            
+
             AfterSheet::class    => function(AfterSheet $event) {
                 // All headers
-                
-                $cellRange = 'A1:W1'; 
+
+                $cellRange = 'A1:W1';
                 $header = [
                     'font' => [
                         'family'     => 'Calibri',
                         'size'       => '10',
                         'bold'       => true
                     ],
-              
+
                 ];
                 $event->sheet->getStyle($cellRange)->applyFromArray($header);
                 //BODY
@@ -84,19 +84,19 @@ class YouthExport implements FromCollection, WithHeadings, ShouldAutoSize, WithE
                         'size'       => '7',
                     ],
                 ];
-                $num1 = YouthPrint::query()->count()+1;  
+                $num1 = YouthPrint::query()->count()+1;
                 $body1 = 'A1'.':N'.$num1; //RANGE OF CELL
                 $event->sheet->getStyle($body1)->applyFromArray($styleArray)->getBorders()->getAllBorders()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);;
                 //Border
                 // $event->sheet->getStyle($body1)
-                
+
 
                 //ORIENTATION
                 $event->sheet
                 ->getPageSetup()
                 ->setOrientation(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_LANDSCAPE);
             },
-            
+
         ];
     }
 }

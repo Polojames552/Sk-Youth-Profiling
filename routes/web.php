@@ -45,7 +45,7 @@ Route::group(['middleware'=> 'auth'],function(){
 
     Route::get('/dashboardmain',[Youth_view::class ,'show'])->name('dashboardmain');
 
-    
+
     Route::get('/search/', [Youth_view::class ,'search'])->name('search');
     Route::get('/searchme/', [Youth_view::class ,'searchme'])->name('searchme');
 
@@ -59,7 +59,7 @@ Route::group(['middleware'=> 'auth'],function(){
 
     Route::get('/export',[PrintController::class ,'export']);
     Route::get('/prnpriview',[PrintController::class ,'prnpriview']);
- 
+
     // Route::get('/charts', function () {
     //     return view('charts');
     // });

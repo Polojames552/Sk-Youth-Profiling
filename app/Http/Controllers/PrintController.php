@@ -19,11 +19,9 @@ class PrintController extends Controller
     }
     public function prnpriview()
     {
-      
             $educ = DB::table('education')->get();
             $purok = DB::table('puroks')->get();
             $p1 = "";
-
           $youth = DB::table('youths')->get();
           $print = DB::table('youths')->get();
           return view('PrintYouth',['print'=>$print,'youth'=>$youth,'educ'=>$educ,'purok'=>$purok,'p1'=>$p1])->with('print', $print);;
@@ -33,5 +31,5 @@ class PrintController extends Controller
     {
       return Excel::download(new YouthExport, 'SK_San Julian.xlsx');
     }
-  
+
 }

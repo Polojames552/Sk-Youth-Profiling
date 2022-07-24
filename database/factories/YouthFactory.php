@@ -24,7 +24,7 @@ class YouthFactory extends Factory
         $sex = array("Male", "Female", "LGBT");
         shuffle($sex);
         $sex = $sex[array_rand($sex)];
-        
+
         $CPno = array("09103245513","09703644522");
         shuffle($CPno);
         $CPno = $CPno[array_rand($CPno)];
@@ -32,7 +32,7 @@ class YouthFactory extends Factory
         $Educ = array("Master's Degree", "College Level","College Undergraduate","Senior High School", "Junior High School","High School Undergraduate", "Elementary Level","Elementary Undergraduate");
         shuffle($Educ);
         $Educ = $Educ[array_rand($Educ)];
-        
+
         $purok = array("1", "2","3", "4-A","4-B","5","6");
         shuffle($purok);
         $purok = $purok[array_rand($purok)];
@@ -52,7 +52,7 @@ class YouthFactory extends Factory
         $occup = array("Laborer", "Vendor","Mason","Student", "");
         shuffle($occup);
         $occup = $occup[array_rand($occup)];
-        
+
         $s1 = array("Basketball", "Badminton","Taekwondo","Sepak Takraw", "");
         shuffle($s1);
         $s1 = $s1[array_rand($s1)];

@@ -9,7 +9,7 @@
         <title>Dashboard-Sk Admin</title>
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>   <!-- humburgerv link-->
-      
+
         <!-- jquery document ready -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -26,7 +26,7 @@
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
 
         </nav>
-        
+
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -42,7 +42,7 @@
                                 Dashboard
                             </a>
 
-                          
+
 
                              <a class="nav-link" href="charts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
@@ -51,10 +51,10 @@
                             <a class="nav-link" href="tables">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Tables & Export Data
-                            </a> 
+                            </a>
 
-                      
-                          
+
+
                             <form method="POST" action="{{ route('logout') }}">
                                        @csrf
                                                 <x-dropdown-link class="nav-link" :href="route('logout')"
@@ -78,14 +78,14 @@
 
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">Dashboard</h1>
-                       
-                        <center><i><h3 class="mt-4">Total Youth Registered Population: <b id="num">{{$count}}</b></h3></i></center>  
+
+                        <center><i><h3 class="mt-4">Total Youth Registered Population: <b id="num">{{$count}}</b></h3></i></center>
                       <style>
                           #num{
                             color:red;
                           }
                     </style>
-                    
+
                     <br><br>
                         <div class="row">
                             <div class="col-lg-6">
@@ -140,7 +140,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($youth as $youth) 
+                                    @foreach($youth as $youth)
                                         <tr>
                                              <input type="hidden" id="youth_id" value="{{$youth->id}}">
                                             <td>{{$youth->id}}</td>
@@ -176,7 +176,7 @@
                                 </table>
                             </div>
                         </div>
-                    </div>  
+                    </div>
                 </main>
             </div>
 
@@ -188,8 +188,8 @@
         <h5 class="modal-title" id="exampleModalLabel">Delete Youth Data</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-     
-      <form id="delete_modal_Form" method="POST"> 
+
+      <form id="delete_modal_Form" method="POST">
             {{ csrf_field() }}
             {{ method_field('DELETE') }}
             <div class="modal-body">
@@ -200,7 +200,7 @@
             <div class="modal-footer">
                 <button type="submit" class="btn btn-danger">Delete</button>
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancel</button>
-        </form> 
+        </form>
             </div>
     </div>
   </div>
@@ -209,13 +209,12 @@
 
         </div>
 
-            
+
         <script>
               $(document).ready(function(){
-               
 
                   $('.TableData').on('click', '#deletebtn', function(){
-                      
+
                     $tr = $(this).closest('tr');
 
                       var data = $tr.children("td").map(function(){
@@ -243,8 +242,8 @@
               });
         </script>
 
-        
-        
+
+
  <!-- BAR GRAPH Purok Population -->
  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
@@ -301,7 +300,7 @@
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
         chart.draw(data, options);
-      }  
+      }
 
     </script>
 
@@ -320,14 +319,14 @@
 
     #purok {
         height: 400px;
-         width: 330px; 
+         width: 330px;
     }
 
          #pie {
         height: 300px;
         width: 330px;
          }
-    
+
 
    #piechart{
        height: 50px;
@@ -339,7 +338,7 @@
         }
 
     }
-    
+
 .button-24 {
   background: rgba(33, 208, 71, 0.8);
   border: 1px solid rgba(33, 208, 71, 0.8);

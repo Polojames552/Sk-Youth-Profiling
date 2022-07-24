@@ -1,7 +1,7 @@
 @extends('my')
 @section('content')
 <!-- <center><br><br><a href="{{ url('/prnpriview') }}" class="btnprn btn">Print Preview</a></center> -->
-   
+
           <!-- Modal popup bootstrap -->
           <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -10,7 +10,7 @@
 
 
     <br><br>
-   
+
     <form action="{{ route('searchme') }}" method="GET">
         <label for="">
             Filter Data:
@@ -22,8 +22,8 @@
 
     <center><a href="#" type="button"  class="btn btn-info btn-lg" id="print" onclick="printDiv()">
                               <span class="fa fa-print"></span> Print Data
-                            </a> 
-    </center> 
+                            </a>
+    </center>
 <div id="bodycard">
 <center><h3>Youth Data</h3></center>
                 <table class="table" border="1px" id="datatable1">
@@ -48,7 +48,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach($youth as $youth) 
+                            @foreach($youth as $youth)
                             <tr>
                                 <td>{{$youth->id}}</td>
                                 <td>{{$youth->Fname}} {{$youth->Mname}}<b>.</b> {{$youth->Lname}} {{$youth->EXTname}}</td>
@@ -71,7 +71,7 @@
                         @endforeach
                     </tbody>
                     </table>
-                    </div> 
+                    </div>
                     </div>
 
                     <!-- Modal delete -->
@@ -82,8 +82,8 @@
         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-     
-      <form id="delete_modal_Form" method="POST"> 
+
+      <form id="delete_modal_Form" method="POST">
             {{ csrf_field() }}
             {{ method_field('DELETE') }}
             <div class="modal-body">
@@ -93,7 +93,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-danger">Delete Data</button>
-        </form> 
+        </form>
             </div>
     </div>
   </div>
@@ -125,7 +125,7 @@ $(document).ready(function(){
                 }).get();
 
                 //console.log(data);
-                
+
                 $('#delete_youth_id').val(data[0]);
 
                 $('#delete_modal_Form').attr('action', '/youth-delete/'+data[0]);

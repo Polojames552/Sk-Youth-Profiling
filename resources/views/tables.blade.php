@@ -204,16 +204,16 @@
                             </div>
                         </div>
 
-                
+
                 </div>
-                
-                  
+
+
 
 <br><br><br>
 
                         <!-- <a href="/export" class="btn btn-primary">Export File</a> -->
-                    
-                    
+
+
                     <style>
                         #searchtext{
                             color: white;
@@ -259,9 +259,9 @@
                                 <i class="fas fa-table me-1"></i>
                                 DataTable Example
                             </div>
-                             <!-- <a href="#" type="button"  class="btn btn-info btn-lg" id="print" onclick="printDiv()">
+                             <a href="#" type="button"  class="btn btn-info btn-lg" id="print" onclick="printDiv()">
                               <span class="fa fa-print"></span> Print
-                            </a>  -->
+                            </a>
 
                             <div class="card-body" id="bodycard">
                                 <table id="datatablesSimple" border="1px">
@@ -298,7 +298,7 @@
                                         @else
                                             <td>{{$youth->Lname}}<b>,</b> {{$youth->Fname}} {{$youth->Mname[0]}}<b>.</b> {{$youth->EXTname}}</td>
                                         @endif
-                                       
+
                                             <!-- <td>{{$youth->Fname}}</td>
                                             <td>{{$youth->Mname}}</td>
                                             <td>{{$youth->Lname}}</td>
