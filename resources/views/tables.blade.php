@@ -259,9 +259,9 @@
                                 <i class="fas fa-table me-1"></i>
                                 DataTable Example
                             </div>
-                             <a href="#" type="button"  class="btn btn-info btn-lg" id="print" onclick="printDiv()">
+                             <!-- <a href="#" type="button"  class="btn btn-info btn-lg" id="print" onclick="printDiv()">
                               <span class="fa fa-print"></span> Print
-                            </a>
+                            </a> -->
 
                             <div class="card-body" id="bodycard">
                                 <table id="datatablesSimple" border="1px">
