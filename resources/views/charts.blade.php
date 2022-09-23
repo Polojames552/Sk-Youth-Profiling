@@ -201,7 +201,7 @@
           ['Gender', 'Youth Genders'],
           ['Male',     {{$FMale}}],
           ['Female',    {{$FFemale}}],
-          ['LGBT',    {{$LGBTQ}}]
+          ['LGBT',    {{$FLGBTQ}}]
         ]);
         var options = {
           title: 'Gender Statistics'

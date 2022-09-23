@@ -7,7 +7,7 @@
 
     <title>SK Form</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>   <!-- humburgerv link-->
-      
+
       <!-- jquery document ready -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -30,12 +30,12 @@
         <div class="wrapper wrapper--w680">
             <div class="card card-4">
                 <div class="card-body">
-                  
+
                    <center><img src="image/SKcover.png" width="75%" height="70%" alt=""></center>
 
                    <center>  <h2 class="title">Registration Form</h2></center>
 
-                  
+
                    <!-- <div class="error"> -->
                        <!-- Validation Errors -->
          <x-guest-layout>
@@ -43,7 +43,7 @@
            </x-slot>
 
                 <x-auth-validation-errors class="mb-4" :errors="$errors" />
-               
+
                     @if(session()->has('message'))
                     <center>
                             <div class="alert alert-success" id="alertmessage">
@@ -58,7 +58,7 @@
              }
          </style>
                    <!-- </div> -->
-                   
+
                   <b><b id="req">*</b><i>Required</i></b>
                    <br><br>
                    <form action="youth" method="post" enctype="multipart/form-data">
@@ -218,7 +218,7 @@
                                     <input class="input--style-4" type="text" name="Occupation" >
                                 </div>
                             </div>
-                            
+
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Sports(1)</label>
@@ -241,8 +241,8 @@
                             </div>
                             </div>
                             </div>
-                            
-                            
+
+
                             <div class="row row-space">
                             <!-- <div class="bttn"> -->
                             <div class="flex-parent jc-center">
@@ -250,7 +250,7 @@
                                         <div class="col-2">
                                          <button class="button-5" role="button">Submit</button>
                                         </div>
-                        </form> 
+                        </form>
                                         <!-- <div class="col-2" id="cancel"> -->
                                         <div class="col-2">
                                             <form action="{{route('welcome')}}" method="get">
@@ -260,11 +260,11 @@
                                 </div>
                                 </div>
                         </div>
-                        
+
 
 
                         <!-- HTML !-->
-                
+
 
 <style>
    #alertmessage{
@@ -290,35 +290,35 @@ button.margin-right {
 .bttn{
     padding-bottom: 50px;
     justify-content: center;
-  
-  
-   
+
+
+
 }
 
 @media (max-width:800px){
-   
+
     .bttn{
     padding-bottom: 50px;
     justify-content: center;
     /* margin-right: 100px;
     margin-left: 150px; */
-   
+
 }
 
 .flex-parent {
- 
+
   display: block;
-    width: 250px;  
+    width: 250px;
 }
 
 .jc-center {
   justify-content: center;
 }
 
-  
+
 }
 
-    
+
     /* #cancel{
     margin-top: -50px;
     margin-left: 100px;
@@ -329,18 +329,18 @@ button.margin-right {
 #sub{
     padding-right: 100px;
     margin-right: 100px;
-   
+
 } */
 }
 
 /* #sub{
     padding-right: 10px;
-   
+
 } */
-              
+
 /* #cancel{
     padding-bottom: 50px;
-  
+
 
 } */
 
@@ -417,8 +417,8 @@ button.margin-right {
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: baseline;
-  
-  
+
+
 }
 
 .button-5:hover,
@@ -435,7 +435,7 @@ button.margin-right {
   background-color: #c85000;
   box-shadow: rgba(55, 146, 250, 0.8) 0 2px 4px;
   transform: translateY(0);
-  
+
 }
 
 /* asds */
@@ -466,7 +466,7 @@ button.margin-right {
   touch-action: manipulation;
   vertical-align: baseline;
   margin-left: 80px;
-  
+
 }
 
 .button-6:hover,
@@ -483,11 +483,11 @@ button.margin-right {
   background-color: #f02b38;
   box-shadow: rgba(246, 32, 32, 0.8) 0 2px 4px;
   transform: translateY(0);
-  
+
 }
 
 </style>
-                    
+
                 </div>
             </div>
         </div>
@@ -495,7 +495,7 @@ button.margin-right {
 
 
 
-    
+
     <!-- Jquery JS-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <!-- Vendor JS-->

@@ -52,14 +52,14 @@ class Youth_view extends Controller
 
     $LGBTQ = DB::table('youths')->where('Sex', 'LGBT')->count();
     if($LGBTQ == 0){
-        $LGBTQ = 0;
+        $FLGBTQ = 0;
     }else{
-        $LGBTQ = ($count/$LGBTQ)*100;
+        $FLGBTQ = ($count/$LGBTQ)*100;
     }
 
         return view('dashboardmain',['youth'=>$youth,'purok1'=>$purok1,
         'purok2'=>$purok2,'purok3'=>$purok3,'purok4A'=>$purok4A,'purok4B'=>$purok4B,'purok5'=>$purok5,'purok6'=>$purok6,'FMale'=>$FMale,
-        'FFemale'=>$FFemale,'LGBTQ'=>$LGBTQ , 'count'=>$count]);
+        'FFemale'=>$FFemale,'FLGBTQ'=>$FLGBTQ , 'count'=>$count]);
     }
 
     function data1(){
@@ -126,9 +126,9 @@ class Youth_view extends Controller
 
         $LGBTQ = DB::table('youths')->where('Sex', 'LGBT')->count();
         if($LGBTQ == 0){
-            $LGBTQ = 0;
+            $FLGBTQ = 0;
         }else{
-            $LGBTQ = ($count/$LGBTQ)*100;
+            $FLGBTQ = ($count/$LGBTQ)*100;
         }
 
         // Population per Education levels
@@ -146,7 +146,7 @@ class Youth_view extends Controller
 
         return view('charts',['announcement' => $announcement,'count'=> $count , 'F15to18'=>$F15to18,'F19Above'=>$F19Above,'purok1'=>$purok1,
         'purok2'=>$purok2,'purok3'=>$purok3,'purok4A'=>$purok4A,'purok4B'=>$purok4B,'purok5'=>$purok5,'purok6'=>$purok6,'FMale'=>$FMale,
-        'FFemale'=>$FFemale,'LGBTQ'=>$LGBTQ,'master'=>$master,'cg'=>$cg,'cl'=>$cl,'cu'=>$cu,'shs'=>$shs,'jhs'=>$jhs, 'hsu'=>$hsu,'el'=>$el,'eu'=>$eu]);
+        'FFemale'=>$FFemale,'FLGBTQ'=>$FLGBTQ,'master'=>$master,'cg'=>$cg,'cl'=>$cl,'cu'=>$cu,'shs'=>$shs,'jhs'=>$jhs, 'hsu'=>$hsu,'el'=>$el,'eu'=>$eu]);
     }
 
     public function search(Request $request){
