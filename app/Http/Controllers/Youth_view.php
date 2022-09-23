@@ -38,24 +38,24 @@ class Youth_view extends Controller
     // PIE Boys and Girls
     $Male = DB::table('youths')->where('Sex', 'Male')->count();
     if($Male == 0){
-        $FMale = 0;
-    }else{
-        $FMale = ($count/$Male)*100;
-    }
+      $FMale = 0;
+  }else{
+      $FMale = $Male;
+  }
 
-    $Female = DB::table('youths')->where('Sex', 'Female')->count();
-    if($Female == 0){
-        $FFemale = 0;
-    }else{
-        $FFemale = ($count/$Female)*100;
-    }
+  $Female = DB::table('youths')->where('Sex', 'Female')->count();
+  if($Female == 0){
+      $FFemale = 0;
+  }else{
+      $FFemale = $Female;
+  }
 
-    $LGBTQ = DB::table('youths')->where('Sex', 'LGBT')->count();
-    if($LGBTQ == 0){
-        $FLGBTQ = 0;
-    }else{
-        $FLGBTQ = ($count/$LGBTQ)*100;
-    }
+  $LGBTQ = DB::table('youths')->where('Sex', 'LGBT')->count();
+  if($LGBTQ == 0){
+      $FLGBTQ = 0;
+  }else{
+      $FLGBTQ = $LGBTQ;
+  }
 
         return view('dashboardmain',['youth'=>$youth,'purok1'=>$purok1,
         'purok2'=>$purok2,'purok3'=>$purok3,'purok4A'=>$purok4A,'purok4B'=>$purok4B,'purok5'=>$purok5,'purok6'=>$purok6,'FMale'=>$FMale,
@@ -90,14 +90,14 @@ class Youth_view extends Controller
         if($N15To18 == 0){
             $F15to18 = 0;
         }else{
-            $F15to18 = ($count/$N15To18)*100;
+            $F15to18 = $N15To18;
         }
 
         $N19Above = DB::table('youths')->where('Age', '19')->Orwhere('Age', '20')->Orwhere('Age', '21')->Orwhere('Age', '22')->Orwhere('Age', '23')->Orwhere('Age', '24')->Orwhere('Age', '25')->Orwhere('Age', '26')->Orwhere('Age', '27')->Orwhere('Age', '28')->count();
         if($N19Above == 0){
             $F19Above = 0;
         }else{
-            $F19Above = ($count/$N19Above)*100;
+            $F19Above = $N19Above;
         }
 
       // Population per purok
@@ -111,25 +111,25 @@ class Youth_view extends Controller
 
        // PIE Boys and Girls
        $Male = DB::table('youths')->where('Sex', 'Male')->count();
-        if($Male == 0){
-            $FMale = 0;
-        }else{
-            $FMale = ($count/$Male)*100;
-        }
-
-        $Female = DB::table('youths')->where('Sex', 'Female')->count();
-        if($Female == 0){
-            $FFemale = 0;
-        }else{
-            $FFemale = ($count/$Female)*100;
-        }
-
-        $LGBTQ = DB::table('youths')->where('Sex', 'LGBT')->count();
-        if($LGBTQ == 0){
-            $FLGBTQ = 0;
-        }else{
-            $FLGBTQ = ($count/$LGBTQ)*100;
-        }
+       if($Male == 0){
+        $FMale = 0;
+    }else{
+        $FMale = $Male;
+    }
+  
+    $Female = DB::table('youths')->where('Sex', 'Female')->count();
+    if($Female == 0){
+        $FFemale = 0;
+    }else{
+        $FFemale = $Female;
+    }
+  
+    $LGBTQ = DB::table('youths')->where('Sex', 'LGBT')->count();
+    if($LGBTQ == 0){
+        $FLGBTQ = 0;
+    }else{
+        $FLGBTQ = $LGBTQ;
+    }
 
         // Population per Education levels
         $announcement = DB::table('users')->get('announcement');
