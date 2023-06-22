@@ -70,4 +70,4 @@ Composer require laravel/breeze --dev
 php artisan breeze:install
 npm install
 npm run dev
-php artisan migrate:fresh
+php artisan migrate:fresh"# Sk-Youth-Profiling" 
