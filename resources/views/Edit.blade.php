@@ -26,11 +26,11 @@
         <div class="wrapper wrapper--w680">
             <div class="card card-4">
                 <div class="card-body">
-                  
+
                    <center><img src="image/SKcover.png" width="75%" height="70%" alt=""></center>
 
                    <center>  <h2 class="title">Edit Youth Data</h2></center>
-                  
+
                    <!-- <div class="error"> -->
                        <!-- Validation Errors -->
          <x-guest-layout>
@@ -38,7 +38,7 @@
            </x-slot>
 
                 <!-- <x-auth-validation-errors class="mb-4" :errors="$errors" /> -->
-             
+
          </x-guest-layout>
          <style>
              #req{
@@ -46,7 +46,7 @@
              }
          </style>
                    <!-- </div> -->
-                   
+
                   <b><b id="req">*</b><i>Required</i></b>
                    <br><br>
                    <form action="{{ route ('update-user' , $youth[0]->id) }} " method="post" enctype="multipart/form-data">
@@ -181,7 +181,7 @@
                                           <option selected>Yes</option>
                                           <option>No</option>
                                     </select>
-                                  @elseif($youth[0]->PWD == 'No') 
+                                  @elseif($youth[0]->PWD == 'No')
                                           <select class="input--style-5" type="text" name="PWD" required>
                                                 <option>Yes</option>
                                                 <option selected>No</option>
@@ -196,19 +196,19 @@
                                 <div class="input-group">
                                     <label class="label"><b id="req">*</b>Civil Status</label>
                                     <div class="rs-select2 js-select-simple select--no-search">
-                                    @if($youth[0]->CivilStatus == 'Single') 
+                                    @if($youth[0]->CivilStatus == 'Single')
                                         <select class="input--style-5" type="text" name="CivilStatus" required>
                                             <option selected>Single</option>
                                             <option>Married</option>
                                             <option>Widowed</option>
                                         </select>
-                                    @elseif($youth[0]->CivilStatus == 'Married') 
+                                    @elseif($youth[0]->CivilStatus == 'Married')
                                         <select class="input--style-5" type="text" name="CivilStatus" required>
                                             <option>Single</option>
                                             <option selected>Married</option>
                                             <option>Widowed</option>
                                         </select>
-                                        @elseif($youth[0]->CivilStatus == 'Widowed') 
+                                        @elseif($youth[0]->CivilStatus == 'Widowed')
                                         <select class="input--style-5" type="text" name="CivilStatus" required>
                                             <option>Single</option>
                                             <option >Married</option>
@@ -226,12 +226,12 @@
                               <div class="input-group">
                                   <label class="label"><b id="req">*</b>Scholarship</label>
                                   <div class="rs-select2 js-select-simple select--no-search">
-                                  @if($youth[0]->Scholarship == 'Scholar') 
+                                  @if($youth[0]->Scholarship == 'Scholar')
                                       <select class="input--style-5" type="text" name="Scholarship" required>
                                           <option selected>Scholar</option>
                                           <option>None</option>
                                       </select>
-                                @elseif($youth[0]->Scholarship == 'None') 
+                                @elseif($youth[0]->Scholarship == 'None')
                                         <select class="input--style-5" type="text" name="Scholarship" required>
                                           <option>Scholar</option>
                                           <option selected>None</option>
@@ -248,7 +248,7 @@
                                     <input class="input--style-4" type="text" name="Occupation" value="{{$youth[0]->Occupation}}" >
                                 </div>
                             </div>
-                            
+
                             <div class="col-2">
                                 <div class="input-group">
                                 <label class="label">Sports(1)</label>
@@ -271,8 +271,8 @@
                             </div>
                             </div>
                             </div>
-                            
-                            
+
+
                             <div class="row row-space">
                             <!-- <div class="bttn"> -->
                             <div class="flex-parent jc-center">
@@ -280,7 +280,7 @@
                                         <div class="col-2">
                                          <button class="button-5" role="button">Update</button>
                                         </div>
-                        </form> 
+                        </form>
                                         <!-- <div class="col-2" id="cancel"> -->
                                         <div class="col-2">
                                         <form action="{{route('dashboardmain')}}" method="get">
@@ -290,14 +290,14 @@
                                 </div>
                                 </div>
                         </div>
-                        
+
 
 
                         <!-- HTML !-->
-                    
+
 
 <style>
-   
+
 /* .error{
     background-color:#f23339;
 } */
@@ -318,35 +318,35 @@ button.margin-right {
 .bttn{
     padding-bottom: 50px;
     justify-content: center;
-  
-  
-   
+
+
+
 }
 
 @media (max-width:800px){
-   
+
     .bttn{
     padding-bottom: 50px;
     justify-content: center;
     /* margin-right: 100px;
     margin-left: 150px; */
-   
+
 }
 
 .flex-parent {
- 
+
   display: block;
-    width: 250px;  
+    width: 250px;
 }
 
 .jc-center {
   justify-content: center;
 }
 
-  
+
 }
 
-    
+
     /* #cancel{
     margin-top: -50px;
     margin-left: 100px;
@@ -357,18 +357,18 @@ button.margin-right {
 #sub{
     padding-right: 100px;
     margin-right: 100px;
-   
+
 } */
 }
 
 /* #sub{
     padding-right: 10px;
-   
+
 } */
-              
+
 /* #cancel{
     padding-bottom: 50px;
-  
+
 
 } */
 
@@ -445,8 +445,8 @@ button.margin-right {
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: baseline;
-  
-  
+
+
 }
 
 .button-5:hover,
@@ -463,7 +463,7 @@ button.margin-right {
   background-color: #c85000;
   box-shadow: rgba(55, 146, 250, 0.8) 0 2px 4px;
   transform: translateY(0);
-  
+
 }
 
 /* asds */
@@ -494,7 +494,7 @@ button.margin-right {
   touch-action: manipulation;
   vertical-align: baseline;
   margin-left: 80px;
-  
+
 }
 
 .button-6:hover,
@@ -511,7 +511,7 @@ button.margin-right {
   background-color: #f02b38;
   box-shadow: rgba(246, 32, 32, 0.8) 0 2px 4px;
   transform: translateY(0);
-  
+
 }
 
 .font-robo {
@@ -1109,7 +1109,7 @@ input {
   }
 }
 </style>
-                    
+
                 </div>
             </div>
         </div>
@@ -1117,7 +1117,7 @@ input {
 
 
 
-    
+
     <!-- Jquery JS-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <!-- Vendor JS-->

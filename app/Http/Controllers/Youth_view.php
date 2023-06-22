@@ -116,14 +116,14 @@ class Youth_view extends Controller
     }else{
         $FMale = $Male;
     }
-  
+
     $Female = DB::table('youths')->where('Sex', 'Female')->count();
     if($Female == 0){
         $FFemale = 0;
     }else{
         $FFemale = $Female;
     }
-  
+
     $LGBTQ = DB::table('youths')->where('Sex', 'LGBT')->count();
     if($LGBTQ == 0){
         $FLGBTQ = 0;
